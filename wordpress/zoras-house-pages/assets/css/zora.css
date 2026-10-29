@@ -1,0 +1,533 @@
+/* ==========================================================================
+   Zora's House — page sections built from WordPress blocks.
+   Every rule is scoped to .zh (each section's outer Group block) or a .zh-* class,
+   so this file never restyles the theme or other pages.
+   Loaded on the front end and inside the block editor, so editing looks like the live page.
+   ========================================================================== */
+
+/* ---------- Brand fonts (self-hosted in assets/font) ---------- */
+@font-face {
+  font-family: "ZH Brandon Text";
+  src: url("../font/brandon%20text/HVD%20Fonts%20-%20BrandonText-Regular.otf") format("opentype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "ZH Brandon Text";
+  src: url("../font/brandon%20text/HVD%20Fonts%20-%20BrandonText-RegularItalic.otf") format("opentype");
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: "ZH Brandon Text";
+  src: url("../font/brandon%20text/HVD%20Fonts%20-%20BrandonText-Bold.otf") format("opentype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "ZH Brandon Text";
+  src: url("../font/brandon%20text/HVD%20Fonts%20-%20BrandonText-BoldItalic.otf") format("opentype");
+  font-weight: 700;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: "ZH Abel";
+  src: url("../font/able/Abel-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+.zh {
+  --zh-magenta: #c8376e;
+  --zh-navy: #181844;
+  --zh-teal: #268f99;
+  --zh-coral: #dc4e3f;
+  --zh-ink: #1f232b;
+  --zh-muted: #5a5d68;
+  --zh-cream: #fbf6f1;
+  --zh-blush: #f8e9ef;
+  --zh-white: #ffffff;
+
+  --zh-grad-warm: linear-gradient(120deg, var(--zh-magenta) 0%, var(--zh-coral) 100%);
+  --zh-grad-cool: linear-gradient(135deg, var(--zh-navy) 0%, #2b2366 45%, var(--zh-magenta) 100%);
+  --zh-grad-teal: linear-gradient(135deg, var(--zh-teal) 0%, var(--zh-navy) 100%);
+
+  --zh-font-head: "ZH Brandon Text", "Trebuchet MS", sans-serif;
+  --zh-font-body: "ZH Brandon Text", Arial, sans-serif;
+  --zh-font-accent: "ZH Abel", "Arial Narrow", sans-serif; /* small uppercase labels */
+
+  --zh-wrap: 1200px;
+  --zh-gutter: clamp(16px, 4vw, 40px);
+  --zh-section: clamp(64px, 9vw, 120px);
+  --zh-radius: 18px;
+  --zh-shadow: 0 18px 40px -18px rgba(24, 24, 68, .35);
+
+  font-family: var(--zh-font-body);
+  font-size: 17px;
+  line-height: 1.65;
+  color: var(--zh-ink);
+  background-color: var(--zh-white);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+.zh *, .zh *::before, .zh *::after { box-sizing: border-box; }
+.zh img { max-width: 100%; height: auto; display: block; }
+.zh figure { margin: 0; }
+
+/* Typography — applies to plain heading/paragraph blocks, so anything the client adds matches. */
+.zh h1, .zh h2, .zh h3, .zh h4 {
+  font-family: var(--zh-font-head);
+  font-weight: 700;
+  line-height: 1.15;
+  margin: 0 0 .5em;
+  color: inherit;
+  letter-spacing: -.005em;
+}
+.zh h1 { font-size: clamp(2.3rem, 5.6vw, 4.4rem); }
+.zh h2 { font-size: clamp(1.9rem, 3.8vw, 3rem); }
+.zh h3 { font-size: clamp(1.25rem, 2vw, 1.55rem); }
+.zh h4 { font-size: 1.1rem; margin-bottom: 2px; }
+.zh p { margin: 0 0 1em; font-size: inherit; }
+.zh p:last-child { margin-bottom: 0; }
+:where(.zh) a { color: inherit; }
+.zh ul.wp-block-list { margin: 0 0 1em; }
+
+/* Italic words inside a heading become the brand gradient highlight (select a word → Italic). */
+.zh h1 em, .zh h2 em, .zh h3 em {
+  font-style: normal;
+  background: var(--zh-grad-warm);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* WordPress adds a "block gap" margin between blocks; spacing here is handled by this stylesheet. */
+.zh.is-layout-flow > *,
+.zh .is-layout-flow > * { margin-block-start: 0; }
+.wp-block-post-content > .zh,
+:where(.is-layout-flow) > .zh,
+.zh-main > .zh { margin-block: 0; }
+.wp-site-blocks > main:has(.zh) { margin-block-start: 0; }
+.wp-site-blocks > main:has(.zh) + * { margin-block-start: 0; }
+
+/* Sections are "Full width" (alignfull) blocks; keep them edge to edge with no side margins on the page. */
+.zh-main .zh.alignfull { margin-left: 0; margin-right: 0; }
+/* Block editor sets an inline height on images; card photos must fill the card. */
+.zh-path > .wp-block-image img { height: 100% !important; }
+
+.zh-wrap { width: 100%; max-width: var(--zh-wrap); margin-left: auto; margin-right: auto; padding: 0 var(--zh-gutter); }
+.zh-section { padding: var(--zh-section) 0; }
+.zh-section--cream { background-color: var(--zh-cream); }
+.zh-section--blush { background-color: var(--zh-blush); }
+.zh-section--navy { background-color: var(--zh-navy); color: var(--zh-white); }
+
+.zh .zh-eyebrow {
+  display: block;
+  font-family: var(--zh-font-accent);
+  font-size: .9rem;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: var(--zh-magenta);
+  margin-bottom: 14px;
+}
+.zh-section--navy .zh-eyebrow, .zh-grad .zh-eyebrow { color: #ffc2d6; }
+
+.zh .zh-lead { font-size: clamp(1.05rem, 1.5vw, 1.22rem); color: var(--zh-muted); max-width: 62ch; }
+.zh .zh-lead.has-text-align-center { margin-left: auto; margin-right: auto; }
+.zh-section--navy .zh-lead, .zh-grad .zh-lead { color: rgba(255, 255, 255, .86); }
+.zh .zh-lead--strong { color: var(--zh-ink); font-size: clamp(1.15rem, 1.8vw, 1.4rem); }
+.zh .zh-mt { margin-top: 56px; }
+
+/* ---------- Buttons (Button block styles: Primary / Light / Outline / Link) ---------- */
+.zh .wp-block-buttons { gap: 14px; margin-top: 8px; }
+.zh .wp-block-button__link {
+  display: inline-flex;
+  align-items: center;
+  gap: .55em;
+  padding: 14px 26px;
+  border-radius: 999px;
+  font-family: var(--zh-font-head);
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 1.2;
+  text-decoration: none;
+  border: 2px solid transparent;
+  cursor: pointer;
+  transition: transform .25s ease, box-shadow .25s ease, background-color .25s ease, color .25s ease;
+}
+.zh .wp-block-button__link::after { content: "\2192"; transition: transform .25s ease; }
+.zh .wp-block-button__link:hover { transform: translateY(-2px); }
+.zh .wp-block-button__link:hover::after { transform: translateX(4px); }
+.zh .wp-block-button__link:focus-visible { outline: 3px solid var(--zh-teal); outline-offset: 3px; }
+
+/* Primary is also the default for any new button the client adds. */
+.zh .wp-block-button:not([class*="is-style-zh-"]) .wp-block-button__link,
+.zh .is-style-zh-primary .wp-block-button__link {
+  background: var(--zh-grad-warm);
+  color: var(--zh-white);
+  box-shadow: 0 10px 24px -10px rgba(200, 55, 110, .7);
+}
+.zh .is-style-zh-light .wp-block-button__link { background: var(--zh-white); color: var(--zh-navy); }
+.zh .is-style-zh-outline .wp-block-button__link { background: transparent; border-color: currentColor; color: inherit; }
+.zh .is-style-zh-outline .wp-block-button__link:hover { background: var(--zh-navy); color: var(--zh-white); border-color: var(--zh-navy); }
+.zh-hero .is-style-zh-outline .wp-block-button__link:hover,
+.zh-section--navy .is-style-zh-outline .wp-block-button__link:hover { background: var(--zh-white); color: var(--zh-navy); border-color: var(--zh-white); }
+.zh .is-style-zh-link .wp-block-button__link {
+  background: none;
+  padding: 0 0 2px;
+  border: 0;
+  border-bottom: 2px solid currentColor;
+  border-radius: 0;
+  color: var(--zh-magenta);
+}
+.zh .is-style-zh-link .wp-block-button__link:hover { transform: none; }
+
+/* ==========================================================================
+   Hero (Group block with a Background image)
+   ========================================================================== */
+.zh-hero {
+  position: relative;
+  min-height: min(88vh, 820px);
+  display: flex;
+  align-items: flex-end;
+  color: var(--zh-white);
+  overflow: hidden;
+  isolation: isolate;
+  background-color: var(--zh-navy);
+  background-size: cover;
+  background-position: center;
+  padding: 0; /* WordPress pads blocks that have a background; the inner .zh-wrap handles spacing */
+}
+.zh-hero--short { min-height: min(70vh, 640px); }
+.zh-hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background:
+    linear-gradient(0deg, rgba(24, 24, 68, .92) 0%, rgba(24, 24, 68, .45) 45%, rgba(24, 24, 68, .1) 75%),
+    linear-gradient(100deg, rgba(200, 55, 110, .55) 0%, rgba(200, 55, 110, 0) 60%);
+}
+.zh-hero > .zh-wrap { flex: 1; }
+.zh-hero__content { padding-top: 140px; padding-bottom: clamp(56px, 8vw, 96px); max-width: 860px; }
+.zh-hero .zh-lead { color: rgba(255, 255, 255, .9); margin-bottom: 32px; }
+.zh-hero .zh-eyebrow { display: inline-block; color: var(--zh-white); background: rgba(200, 55, 110, .85); padding: 6px 12px; border-radius: 999px; }
+
+/* ==========================================================================
+   "As Seen In" scrolling banner (List block; JS turns it into a marquee)
+   ========================================================================== */
+.zh-press { background-color: var(--zh-navy); color: var(--zh-white); padding: 22px 0; overflow: hidden; }
+.zh-press__inner { display: flex; align-items: center; gap: 32px; }
+.zh .zh-press__label {
+  flex: none;
+  margin: 0;
+  padding-left: var(--zh-gutter);
+  font-family: var(--zh-font-accent);
+  font-size: .9rem;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: #ffc2d6;
+}
+.zh .zh-marquee__list { display: flex; flex-wrap: wrap; list-style: none; margin: 0; padding: 0; }
+.zh-marquee__list li {
+  font-family: var(--zh-font-head);
+  font-size: clamp(1.1rem, 2vw, 1.45rem);
+  white-space: nowrap;
+  padding: 0 28px;
+  display: flex;
+  align-items: center;
+  gap: 56px;
+}
+.zh-marquee__list li::after { content: "\2726"; color: var(--zh-magenta); font-size: .8em; margin-right: -28px; }
+.zh-marquee { flex: 1; min-width: 0; overflow: hidden; mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent); -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent); }
+.zh-marquee__track { display: flex; width: max-content; animation: zh-marquee 32s linear infinite; }
+.zh-marquee .zh-marquee__list { flex-wrap: nowrap; }
+.zh-marquee:hover .zh-marquee__track { animation-play-state: paused; }
+@keyframes zh-marquee { to { transform: translateX(-50%); } }
+
+/* ==========================================================================
+   Split layout (Image block + Group of text)
+   ========================================================================== */
+.zh-split { display: grid; grid-template-columns: 1.05fr 1fr; gap: clamp(32px, 6vw, 80px); align-items: center; }
+.zh-split--rev > .zh-split__media { order: 2; }
+.zh-split__media { position: relative; isolation: isolate; }
+.zh-split__media img { border-radius: var(--zh-radius); box-shadow: var(--zh-shadow); width: 100%; aspect-ratio: 4 / 3; object-fit: cover; }
+.zh-split__media::before {
+  content: "";
+  position: absolute;
+  inset: 24px -18px -18px 24px;
+  border-radius: var(--zh-radius);
+  background: var(--zh-grad-warm);
+  z-index: -1;
+  opacity: .9;
+}
+.zh-split--rev > .zh-split__media::before { inset: 24px 24px -18px -18px; background: var(--zh-grad-teal); }
+
+/* ==========================================================================
+   "I'd like to…" audience cards.
+   In the editor (and without JS) they show as a card grid; on the live page JS turns them into tabs.
+   ========================================================================== */
+.zh-paths { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; margin-top: 32px; }
+.zh-path {
+  position: relative;
+  border-radius: var(--zh-radius);
+  overflow: hidden;
+  min-height: 460px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: clamp(24px, 4vw, 44px);
+  color: var(--zh-white);
+  box-shadow: var(--zh-shadow);
+  isolation: isolate;
+  background-color: var(--zh-navy);
+}
+.zh-path > .wp-block-image { position: absolute; inset: 0; z-index: -2; }
+.zh-path > .wp-block-image img { width: 100%; height: 100%; object-fit: cover; transition: transform 6s ease; }
+.zh-path::after { content: ""; position: absolute; inset: 0; z-index: -1; pointer-events: none; background: linear-gradient(0deg, rgba(24, 24, 68, .94) 0%, rgba(24, 24, 68, .55) 50%, rgba(24, 24, 68, 0) 100%); }
+.zh-path > * { max-width: 620px; }
+.zh-path p { color: rgba(255, 255, 255, .9); }
+.zh .zh-path__tag { font-family: var(--zh-font-accent); font-size: .85rem; letter-spacing: .14em; text-transform: uppercase; color: #ffc2d6; margin-bottom: 8px; }
+
+/* Tabs mode (added by JS) */
+.zh-paths.zh-paths--tabs { grid-template-columns: minmax(260px, 380px) 1fr; gap: clamp(24px, 4vw, 56px); align-items: stretch; }
+.zh-tabs { display: flex; flex-direction: column; gap: 10px; }
+.zh-tab {
+  text-align: left;
+  font: inherit;
+  background: var(--zh-white);
+  border: 2px solid rgba(24, 24, 68, .08);
+  border-radius: 14px;
+  padding: 18px 20px;
+  cursor: pointer;
+  color: var(--zh-navy);
+  transition: border-color .25s, box-shadow .25s, transform .25s, background .25s, color .25s;
+  display: grid;
+  gap: 2px;
+}
+.zh-tab small { font-size: .85rem; letter-spacing: .14em; text-transform: uppercase; color: var(--zh-muted); font-family: var(--zh-font-accent); }
+.zh-tab strong { font-family: var(--zh-font-head); font-size: 1.15rem; font-weight: 700; }
+.zh-tab:hover { border-color: rgba(200, 55, 110, .4); transform: translateX(4px); }
+.zh-tab[aria-selected="true"] { background: var(--zh-grad-cool); color: var(--zh-white); border-color: transparent; box-shadow: var(--zh-shadow); }
+.zh-tab[aria-selected="true"] small { color: #ffc2d6; }
+.zh-tab:focus-visible { outline: 3px solid var(--zh-teal); outline-offset: 3px; }
+.zh-paths--tabs .zh-path[hidden] { display: none; }
+.zh-paths--tabs .zh-path .zh-path__tag { display: none; }
+.zh-path.is-active > .wp-block-image img { transform: scale(1.05); }
+.zh-path.is-active > *:not(.wp-block-image) { animation: zh-rise .6s both; }
+@keyframes zh-rise { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: none; } }
+
+/* ==========================================================================
+   Impact numbers
+   ========================================================================== */
+.zh-grad { background: var(--zh-grad-cool); color: var(--zh-white); position: relative; overflow: hidden; }
+.zh-grad::before {
+  content: "";
+  position: absolute;
+  width: 640px;
+  height: 640px;
+  right: -200px;
+  top: -260px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(220, 78, 63, .55), rgba(220, 78, 63, 0) 70%);
+  pointer-events: none;
+}
+.zh-stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; position: relative; padding: clamp(48px, 6vw, 72px) 0; }
+.zh-stat { text-align: center; padding: 8px 12px; border-left: 1px solid rgba(255, 255, 255, .18); }
+.zh-stat:first-child { border-left: 0; }
+.zh .zh-stat__num { font-family: var(--zh-font-head); font-size: clamp(2.2rem, 4.5vw, 3.4rem); font-weight: 700; line-height: 1; margin-bottom: 10px; }
+.zh .zh-stat__label { font-size: .95rem; color: rgba(255, 255, 255, .82); }
+.zh-stat--pending .zh-stat__num { opacity: .55; font-size: clamp(1.4rem, 2.6vw, 2rem); border: 2px dashed rgba(255, 255, 255, .4); border-radius: 10px; padding: 10px 6px; }
+
+/* ==========================================================================
+   Newsletter
+   ========================================================================== */
+.zh-news {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  border-radius: calc(var(--zh-radius) * 1.4);
+  overflow: hidden;
+  background: var(--zh-grad-warm);
+  color: var(--zh-white);
+  box-shadow: var(--zh-shadow);
+}
+.zh-news__media img { width: 100%; height: 100%; object-fit: cover; min-height: 320px; }
+.zh-news__body { padding: clamp(32px, 5vw, 64px); align-self: center; }
+.zh-news__body p { color: rgba(255, 255, 255, .92); margin-bottom: 28px; }
+
+/* ==========================================================================
+   About: mission/vision cards, story, timeline, people, ripple, cards
+   ========================================================================== */
+.zh-mv { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+.zh-card {
+  background-color: var(--zh-white);
+  border-radius: var(--zh-radius);
+  padding: clamp(28px, 4vw, 44px);
+  box-shadow: 0 10px 30px -18px rgba(24, 24, 68, .3);
+  position: relative;
+  overflow: hidden;
+}
+.zh-card::before { content: ""; position: absolute; left: 0; top: 0; right: 0; height: 6px; background: var(--zh-grad-warm); }
+.zh-card--teal::before { background: var(--zh-grad-teal); }
+.zh .zh-card__quote { font-family: var(--zh-font-head); font-size: 1.35rem; color: var(--zh-magenta); margin-top: 8px; }
+
+.zh-pillars { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; margin: 8px 0 24px; }
+.zh .zh-pillars p {
+  border-radius: 14px;
+  padding: 18px 16px;
+  margin: 0;
+  font-family: var(--zh-font-head);
+  font-size: 1.1rem;
+  color: var(--zh-white);
+  text-align: center;
+  transition: transform .3s ease;
+}
+.zh-pillars p:hover { transform: translateY(-4px) rotate(-1deg); }
+.zh-pillars p:nth-child(4n+1) { background: var(--zh-magenta); }
+.zh-pillars p:nth-child(4n+2) { background: var(--zh-teal); }
+.zh-pillars p:nth-child(4n+3) { background: var(--zh-coral); }
+.zh-pillars p:nth-child(4n+4) { background: var(--zh-navy); }
+
+.zh .zh-question {
+  font-family: var(--zh-font-head);
+  font-style: italic;
+  font-size: clamp(1.5rem, 3vw, 2.3rem);
+  line-height: 1.3;
+  color: var(--zh-navy);
+  border-left: 6px solid var(--zh-magenta);
+  padding-left: 24px;
+  margin: 8px 0 28px;
+}
+
+/* Timeline: a wrapping grid in the editor; a horizontal scroller with arrows on the live page. */
+.zh-timeline { margin-top: 48px; position: relative; }
+.zh-timeline__head { display: flex; align-items: center; gap: 10px; margin-bottom: 4px; }
+.zh-timeline__head h3 { margin: 0 auto 0 0; }
+.zh-timeline__track {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 20px;
+  max-width: var(--zh-wrap);
+  margin: 0 auto;
+  padding: 8px var(--zh-gutter) 28px;
+}
+.zh-js .zh-timeline__track {
+  /* first card lines up with the content column; % resolves against the full-width parent */
+  --zh-tl-pad: max(var(--zh-gutter), calc((100% - var(--zh-wrap)) / 2 + var(--zh-gutter)));
+  display: flex;
+  max-width: none;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  padding: 8px var(--zh-tl-pad) 28px;
+  scroll-padding-left: var(--zh-tl-pad);
+  scrollbar-width: thin;
+  scrollbar-color: var(--zh-magenta) transparent;
+}
+.zh-timeline__track::-webkit-scrollbar { height: 6px; }
+.zh-timeline__track::-webkit-scrollbar-thumb { background: var(--zh-magenta); border-radius: 3px; }
+.zh-tl {
+  flex: 0 0 clamp(240px, 26vw, 300px);
+  scroll-snap-align: start;
+  background-color: var(--zh-white);
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 10px 26px -18px rgba(24, 24, 68, .4);
+  position: relative;
+}
+.zh-tl > .wp-block-image img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; }
+.zh-tl__body { padding: 16px 18px 20px; }
+.zh .zh-tl__date { font-family: var(--zh-font-head); color: var(--zh-magenta); font-size: 1.05rem; font-weight: 700; margin: 0; }
+.zh .zh-tl__text { font-size: .92rem; color: var(--zh-muted); margin: 4px 0 0; }
+.zh-tl--key { background: var(--zh-grad-cool); color: var(--zh-white); display: flex; flex-direction: column; justify-content: center; padding: 28px; }
+.zh-tl--key .zh-tl__date { color: #ffc2d6; font-size: 2.6rem; line-height: 1; margin-bottom: 12px; }
+.zh-tl--key .zh-tl__text { color: rgba(255, 255, 255, .9); font-size: 1rem; }
+.zh-timeline__btn {
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  border: 2px solid var(--zh-navy);
+  background: transparent;
+  color: var(--zh-navy);
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: background .2s, color .2s;
+}
+.zh-timeline__btn:hover { background: var(--zh-navy); color: var(--zh-white); }
+
+.zh-people { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; margin-top: 32px; }
+.zh-person > .wp-block-image img { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; border-radius: var(--zh-radius); margin-bottom: 14px; }
+.zh-person p { font-size: .9rem; color: var(--zh-muted); margin: 0; }
+.zh .zh-board { list-style: none; padding: 0; margin: 28px 0 0; display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+.zh-board li { background-color: var(--zh-white); border-radius: 12px; padding: 18px 20px; border-left: 4px solid var(--zh-teal); font-size: .9rem; color: var(--zh-muted); box-shadow: 0 6px 18px -14px rgba(24, 24, 68, .4); }
+.zh-board li strong { display: block; font-family: var(--zh-font-head); font-size: 1rem; color: var(--zh-ink); }
+
+.zh .zh-ripple { list-style: none; margin: 0 0 28px; padding: 0; }
+.zh-ripple li {
+  font-family: var(--zh-font-head);
+  font-size: clamp(1.15rem, 2vw, 1.5rem);
+  padding: 12px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, .15);
+}
+.zh-ripple li:last-child { border-bottom: 0; color: #ffc2d6; }
+.zh-section--navy .zh-split__media { margin-bottom: 36px; }
+
+.zh-cards3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 40px; }
+.zh-pcard { background-color: var(--zh-white); border-radius: var(--zh-radius); overflow: hidden; box-shadow: 0 10px 30px -18px rgba(24, 24, 68, .3); display: flex; flex-direction: column; transition: transform .3s ease, box-shadow .3s ease; }
+.zh-pcard:hover { transform: translateY(-6px); box-shadow: var(--zh-shadow); }
+.zh-pcard > .wp-block-image img { aspect-ratio: 3 / 2; object-fit: cover; width: 100%; }
+.zh-pcard__body { padding: 24px 26px 28px; display: flex; flex-direction: column; flex: 1; }
+.zh-pcard__body p { color: var(--zh-muted); flex: 1; }
+
+/* ==========================================================================
+   Scroll reveal (JS adds .zh-reveal; content is visible without it)
+   ========================================================================== */
+.zh-js .zh-reveal { opacity: 0; transform: translateY(28px); transition: opacity .8s ease, transform .8s ease; }
+.zh-js .zh-reveal.is-in { opacity: 1; transform: none; }
+
+/* ==========================================================================
+   Responsive
+   ========================================================================== */
+@media (max-width: 1024px) {
+  .zh-stats { grid-template-columns: repeat(2, 1fr); row-gap: 40px; }
+  .zh-stat:nth-child(3) { border-left: 0; }
+  .zh-people { grid-template-columns: repeat(2, 1fr); }
+  .zh .zh-board { grid-template-columns: repeat(2, 1fr); }
+  .zh-pillars { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 860px) {
+  .zh { font-size: 16px; }
+  .zh-split, .zh-paths, .zh-paths.zh-paths--tabs, .zh-news, .zh-mv { grid-template-columns: 1fr; }
+  .zh-split--rev > .zh-split__media { order: 0; }
+  .zh-split__media::before { inset: 16px -10px -10px 16px; }
+  .zh-split--rev > .zh-split__media::before { inset: 16px 16px -10px -10px; }
+  .zh-tabs { flex-direction: row; overflow-x: auto; scroll-snap-type: x mandatory; padding: 0 var(--zh-gutter) 6px; margin: 0 calc(var(--zh-gutter) * -1); }
+  .zh-tab { flex: 0 0 auto; scroll-snap-align: start; max-width: 240px; }
+  .zh-tab:hover { transform: none; }
+  .zh-path { min-height: 420px; }
+  .zh-cards3 { grid-template-columns: 1fr; }
+  .zh-news__media img { min-height: 240px; max-height: 320px; }
+}
+
+@media (max-width: 560px) {
+  .zh-stats { grid-template-columns: 1fr 1fr; gap: 28px 12px; }
+  .zh-stat { border-left: 0; }
+  .zh-people { grid-template-columns: 1fr 1fr; gap: 16px; }
+  .zh .zh-board { grid-template-columns: 1fr; }
+  .zh-press__inner { flex-direction: column; align-items: flex-start; gap: 12px; }
+  .zh-marquee { width: 100%; }
+  .zh-hero .wp-block-button { width: 100%; }
+  .zh-hero .wp-block-button__link { width: 100%; justify-content: center; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .zh *, .zh *::before, .zh *::after { animation: none !important; transition: none !important; }
+  .zh-js .zh-reveal { opacity: 1; transform: none; }
+}

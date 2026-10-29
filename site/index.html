@@ -1,0 +1,253 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Zora's House | Home</title>
+  <meta name="description" content="Zora's House is a place where women+ of color find community, grow ideas, build power, and access the relationships and resources that help us thrive.">
+  <link rel="preload" href="assets/font/brandon%20text/HVD%20Fonts%20-%20BrandonText-Bold.otf" as="font" type="font/otf" crossorigin>
+  <link rel="stylesheet" href="assets/css/zora.css">
+  <style>body { margin: 0; background: #fff; }</style>
+</head>
+<body>
+
+<!-- PREVIEW HEADER: in WordPress the theme's own header/menu replaces this block. -->
+<header class="zh zh-site-header">
+  <div class="zh-wrap">
+    <a class="zh-logo" href="index.html">Zora's <span>House</span></a>
+    <button class="zh-nav-toggle" aria-controls="zh-nav" aria-expanded="false" aria-label="Menu"><span></span><span></span><span></span></button>
+    <nav class="zh-nav" id="zh-nav" aria-label="Main">
+      <ul>
+        <li><a href="index.html" aria-current="page">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a class="zh-btn zh-btn--primary" href="#" data-zh-pending="Donate page URL">Invest</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main class="zh zh-home">
+
+  <!-- ============ HERO ============
+       Headline options from the client brief live in data-zh-options.
+       To change the live headline, edit the <h1> text. Preview others with ?hero=2 / ?hero=3.
+       To use a video header later, replace the <img> with:
+       <video autoplay muted loop playsinline poster="assets/images/home/pfeifer-wocdei-fall-138.jpg"><source src="..." type="video/mp4"></video> -->
+  <section class="zh-hero">
+    <div class="zh-hero__media">
+      <img src="assets/images/home/pfeifer-wocdei-fall-138.jpg"
+           srcset="assets/images/home/pfeifer-wocdei-fall-138-800.jpg 800w, assets/images/home/pfeifer-wocdei-fall-138.jpg 1600w"
+           sizes="100vw" alt="Women+ of color gathered and talking together at a Zora's House program" fetchpriority="high">
+    </div>
+    <div class="zh-wrap">
+      <div class="zh-hero__content">
+        <span class="zh-eyebrow">Zora's House</span>
+        <h1 class="zh-h1"
+            data-zh-options="Where women+ of color build power, possibility, and community.|Building stronger communities by investing in women+ of color.|A home for women+ of color building what comes next.">Where women+ of color build power, possibility, and community.</h1>
+        <div class="zh-hero__actions">
+          <a class="zh-btn zh-btn--primary" href="#zh-paths">Find My Place</a>
+          <a class="zh-btn zh-btn--ghost" href="about.html">About Zora's House</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ AS SEEN IN (scrolling banner) ============ -->
+  <section class="zh-press" aria-label="As seen in">
+    <div class="zh-press__inner">
+      <span class="zh-press__label">As Seen In…</span>
+      <div class="zh-marquee">
+        <div class="zh-marquee__track">
+          <ul class="zh-marquee__list">
+            <li>The Kelly Clarkson Show</li>
+            <li>Marie Claire</li>
+            <li>Black Enterprise</li>
+            <li>EBONY</li>
+            <li>Fast Company</li>
+            <li>NBC Essence</li>
+          </ul>
+          <!-- duplicate list makes the loop seamless; hidden from screen readers -->
+          <ul class="zh-marquee__list" aria-hidden="true">
+            <li>The Kelly Clarkson Show</li>
+            <li>Marie Claire</li>
+            <li>Black Enterprise</li>
+            <li>EBONY</li>
+            <li>Fast Company</li>
+            <li>NBC Essence</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ THERE'S ROOM FOR YOU HERE ============ -->
+  <section class="zh-section">
+    <div class="zh-wrap zh-split">
+      <div class="zh-split__media zh-reveal">
+        <img src="assets/images/home/zora-shouse2024-310-800.jpg"
+             srcset="assets/images/home/zora-shouse2024-310-800.jpg 800w, assets/images/home/zora-shouse2024-310.jpg 1600w"
+             sizes="(max-width: 860px) 100vw, 600px" alt="A 'Welcome to Zora's House' letter board on a deep rose wall" loading="lazy">
+      </div>
+      <div class="zh-reveal" data-delay="1">
+        <span class="zh-eyebrow">Welcome</span>
+        <h2 class="zh-h2">There’s room for <span class="zh-hl">you</span> here.</h2>
+        <p class="zh-lead">Zora’s House is a place where women+ of color find community, grow ideas, build power, and access the relationships and resources that help us thrive. And whether you come to participate, partner, give, gather, or simply walk through the door, there’s a role for you in what we’re building.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ I'D LIKE TO… (audience chooser) ============ -->
+  <section class="zh-section zh-section--cream" id="zh-paths">
+    <div class="zh-wrap">
+      <div class="zh-paths__head zh-reveal">
+        <h2 class="zh-h2">I’d like to…</h2>
+        <span class="zh-paths__current zh-hl" data-zh-tabs-current aria-hidden="true">find my place.</span>
+      </div>
+
+      <div class="zh-paths">
+        <div class="zh-tabs" role="tablist" aria-label="I'd like to…" data-zh-tabs>
+          <button class="zh-tab" role="tab" id="zh-tab-1" aria-controls="zh-panel-1" aria-selected="true" data-zh-verb="find my place.">
+            <small>Women+ of Color</small><strong>Find My Place</strong>
+          </button>
+          <button class="zh-tab" role="tab" id="zh-tab-2" aria-controls="zh-panel-2" aria-selected="false" tabindex="-1" data-zh-verb="invest in our future.">
+            <small>Donors, Supporters &amp; Volunteers</small><strong>Invest in Our Communities</strong>
+          </button>
+          <button class="zh-tab" role="tab" id="zh-tab-3" aria-controls="zh-panel-3" aria-selected="false" tabindex="-1" data-zh-verb="build together.">
+            <small>Funders &amp; Partners</small><strong>Build Something Stronger</strong>
+          </button>
+          <button class="zh-tab" role="tab" id="zh-tab-4" aria-controls="zh-panel-4" aria-selected="false" tabindex="-1" data-zh-verb="visit Zora’s House.">
+            <small>Visitors &amp; Community</small><strong>Visit Zora’s House</strong>
+          </button>
+        </div>
+
+        <div>
+          <div class="zh-panel is-active" role="tabpanel" id="zh-panel-1" aria-labelledby="zh-tab-1">
+            <img src="assets/images/home/joyfest2026-108-800.jpg"
+                 srcset="assets/images/home/joyfest2026-108-800.jpg 800w, assets/images/home/joyfest2026-108.jpg 1600w"
+                 sizes="(max-width: 860px) 100vw, 760px" alt="Two smiling women at an outdoor Zora's House festival" loading="lazy">
+            <div class="zh-panel__body">
+              <h3 class="zh-h3">Find My Place at Zora’s House</h3>
+              <p>Connect with programs, gatherings, membership, and a community designed to support women+ of color as we live, lead, build, and thrive.</p>
+              <a class="zh-btn zh-btn--light" href="#" data-zh-pending="Programs / membership page URL">Find My Place</a>
+            </div>
+          </div>
+
+          <div class="zh-panel" role="tabpanel" id="zh-panel-2" aria-labelledby="zh-tab-2" hidden>
+            <img src="assets/images/home/zora-shouse66-800.jpg"
+                 srcset="assets/images/home/zora-shouse66-800.jpg 800w, assets/images/home/zora-shouse66.jpg 1600w"
+                 sizes="(max-width: 860px) 100vw, 760px" alt="Two women laughing together on a couch at Zora's House" loading="lazy">
+            <div class="zh-panel__body">
+              <h3 class="zh-h3">Invest in the Future of Our Communities</h3>
+              <p>Invest in a future where women+ of color—and the communities they shape—have the resources, relationships, and infrastructure they need to thrive.</p>
+              <a class="zh-btn zh-btn--light" href="#" data-zh-pending="Donate / volunteer page URL">Invest</a>
+            </div>
+          </div>
+
+          <div class="zh-panel" role="tabpanel" id="zh-panel-3" aria-labelledby="zh-tab-3" hidden>
+            <img src="assets/images/home/zora-shouse2024-374-800.jpg"
+                 srcset="assets/images/home/zora-shouse2024-374-800.jpg 800w, assets/images/home/zora-shouse2024-374.jpg 1600w"
+                 sizes="(max-width: 860px) 100vw, 760px" alt="A woman smiling during a working meeting at Zora's House" loading="lazy">
+            <div class="zh-panel__body">
+              <h3 class="zh-h3">Build Something Stronger Together</h3>
+              <p>Partner with Zora’s House to strengthen organizations, leaders, and communities through The Collaborative, the Women of Color Equity Design Institute, and other aligned opportunities.</p>
+              <a class="zh-btn zh-btn--light" href="#" data-zh-pending="Partnerships page URL">Partner With Us</a>
+            </div>
+          </div>
+
+          <div class="zh-panel" role="tabpanel" id="zh-panel-4" aria-labelledby="zh-tab-4" hidden>
+            <img src="assets/images/home/dsc-4885-800.jpg"
+                 srcset="assets/images/home/dsc-4885-800.jpg 800w, assets/images/home/dsc-4885.jpg 1600w"
+                 sizes="(max-width: 860px) 100vw, 760px" alt="A community gathering around dinner tables inside Zora's House" loading="lazy">
+            <div class="zh-panel__body">
+              <h3 class="zh-h3">Visit Zora’s House</h3>
+              <p>Experience Zora’s House in person—join us for a gathering, attend First Friday, host something of your own, or explore ways to make our space part of your work and community.</p>
+              <a class="zh-btn zh-btn--light" href="#" data-zh-pending="Visit / events / space rental page URL">Plan a Visit</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ IMPACT METRICS BANNER ============
+       Numbers were not supplied in the brief. Replace each pending stat like this:
+       <span class="zh-stat__num" data-zh-count="5000" data-zh-suffix="+">5,000+</span>
+       and remove the zh-stat--pending class. -->
+  <section class="zh-grad" aria-label="Our impact in numbers">
+    <div class="zh-wrap">
+      <div class="zh-stats">
+        <div class="zh-stat zh-reveal">
+          <span class="zh-stat__num">2018</span>
+          <span class="zh-stat__label">Building community since</span>
+        </div>
+        <div class="zh-stat zh-stat--pending zh-reveal" data-delay="1">
+          <span class="zh-stat__num">[Metric]</span>
+          <span class="zh-stat__label">[Label — to be supplied]</span>
+        </div>
+        <div class="zh-stat zh-stat--pending zh-reveal" data-delay="2">
+          <span class="zh-stat__num">[Metric]</span>
+          <span class="zh-stat__label">[Label — to be supplied]</span>
+        </div>
+        <div class="zh-stat zh-stat--pending zh-reveal" data-delay="3">
+          <span class="zh-stat__num">[Metric]</span>
+          <span class="zh-stat__label">[Label — to be supplied]</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ IMPACT STORY ============ -->
+  <section class="zh-section">
+    <div class="zh-wrap zh-split zh-split--rev">
+      <div class="zh-split__media zh-reveal">
+        <img src="assets/images/home/pfeifer-wocdei-fall-165-800.jpg"
+             srcset="assets/images/home/pfeifer-wocdei-fall-165-800.jpg 800w, assets/images/home/pfeifer-wocdei-fall-165.jpg 1600w"
+             sizes="(max-width: 860px) 100vw, 600px" alt="Young women laughing together during a Zora's House workshop" loading="lazy">
+      </div>
+      <div class="zh-reveal" data-delay="1">
+        <span class="zh-eyebrow">Our Impact</span>
+        <h2 class="zh-h2">The impact goes deeper than the numbers.</h2>
+        <p class="zh-lead">Since 2018, thousands of people have helped turn a bold idea into a growing community institution centered on the lives and leadership of women+ of color. Our latest annual report tells the story of where we’ve been, what we’ve made possible, and what comes next.</p>
+        <a class="zh-btn zh-btn--primary" href="#" data-zh-pending="Annual report URL">Explore Our Impact</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ NEWSLETTER ============
+       Point the button at the client's newsletter signup (or swap in their embed code). -->
+  <section class="zh-section zh-section--blush">
+    <div class="zh-wrap">
+      <div class="zh-news zh-reveal">
+        <div class="zh-news__media">
+          <img src="assets/images/home/dsc-3685-800.jpg"
+               srcset="assets/images/home/dsc-3685-800.jpg 800w, assets/images/home/dsc-3685.jpg 1600w"
+               sizes="(max-width: 860px) 100vw, 600px" alt="A woman in a green dress posing beneath a pink neon sign at Zora's House" loading="lazy">
+        </div>
+        <div class="zh-news__body">
+          <h2 class="zh-h2">You’ve made it this far. We should probably keep in touch.</h2>
+          <p>From gatherings and big ideas to new opportunities and the occasional good surprise, our newsletter keeps you connected to what’s happening at Zora’s House.</p>
+          <a class="zh-btn zh-btn--light" href="#" data-zh-pending="Newsletter signup URL or embed">I’m In</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- PREVIEW FOOTER: the brief's footer links are still blank; WordPress theme footer replaces this. -->
+<footer class="zh zh-site-footer">
+  <div class="zh-wrap">
+    <div class="zh-footer-grid">
+      <a class="zh-logo" href="index.html">Zora's House</a>
+      <ul class="zh-footer-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+      </ul>
+    </div>
+    <p class="zh-footer-note">Footer links to be supplied.</p>
+  </div>
+</footer>
+
+<script src="assets/js/zora.js" defer></script>
+</body>
+</html>

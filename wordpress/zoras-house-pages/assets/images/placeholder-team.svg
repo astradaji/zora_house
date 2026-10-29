@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="1000" viewBox="0 0 800 1000">
+  <defs>
+    <pattern id="s" width="40" height="40" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+      <rect width="40" height="40" fill="#f8e9ef"/>
+      <rect width="20" height="40" fill="#f3dde6"/>
+    </pattern>
+  </defs>
+  <rect width="800" height="1000" fill="url(#s)"/>
+  <rect x="6" y="6" width="788" height="988" rx="30" fill="none" stroke="#c8376e" stroke-opacity=".45" stroke-width="6" stroke-dasharray="20 14"/>
+  <text x="400" y="510" text-anchor="middle" font-family="Arial, sans-serif" font-size="40" letter-spacing="6" fill="#c8376e">TEAM PHOTO</text>
+</svg>
