@@ -11,16 +11,19 @@
 </head>
 <body>
 
-<!-- PREVIEW HEADER: in WordPress the theme's own header/menu replaces this block. -->
+<!-- SITE HEADER: identical on every page. -->
 <header class="zh zh-site-header">
   <div class="zh-wrap">
-    <a class="zh-logo" href="index.html">Zora's <span>House</span></a>
+    <a class="zh-logo" href="index.html"><span class="zh-logo__mark" aria-hidden="true">Z</span><span class="zh-logo__name">Zora's <span>House</span></span></a>
     <button class="zh-nav-toggle" aria-controls="zh-nav" aria-expanded="false" aria-label="Menu"><span></span><span></span><span></span></button>
     <nav class="zh-nav" id="zh-nav" aria-label="Main">
       <ul>
-        <li><a href="index.html" aria-current="page">Home</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a class="zh-btn zh-btn--primary" href="#" data-zh-pending="Donate page URL">Invest</a></li>
+        <li><a href="about.html">Who we are</a></li>
+        <li><a href="individuals.html">What we offer</a></li>
+        <li><a href="about.html#zh-impact">Impact</a></li>
+        <li><a href="news-events.html">News &amp; events</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a class="zh-btn zh-btn--primary" href="#" data-zh-pending="Donate page URL">Give</a></li>
       </ul>
     </nav>
   </div>
@@ -205,7 +208,7 @@
         <a class="zh-link" href="#" data-zh-pending="What We Offer page URL">Explore everything</a>
       </div>
       <div class="zh-cards4">
-        <a class="zh-pcard zh-reveal" href="#" data-zh-pending="Membership page URL">
+        <a class="zh-pcard zh-reveal" href="membership.html">
           <img src="assets/images/home/zora-shouse66-800.jpg" alt="Two women laughing together on a couch at Zora's House" loading="lazy">
           <div class="zh-pcard__body">
             <h3 class="zh-h3">Membership &amp; Coworking</h3>
@@ -219,7 +222,7 @@
             <p>[One-line summary.]</p>
           </div>
         </a>
-        <a class="zh-pcard zh-reveal" data-delay="2" href="#" data-zh-pending="Events page URL">
+        <a class="zh-pcard zh-reveal" data-delay="2" href="news-events.html">
           <img src="assets/images/home/joyfest2026-108-800.jpg" alt="Two smiling women at an outdoor Zora's House festival" loading="lazy">
           <div class="zh-pcard__body">
             <h3 class="zh-h3">Events &amp; Retreats</h3>
@@ -313,7 +316,7 @@
     <div class="zh-wrap">
       <div class="zh-sechead zh-reveal">
         <h2 class="zh-h2">News &amp; Events</h2>
-        <a class="zh-link" href="#" data-zh-pending="News &amp; events page URL">See all</a>
+        <a class="zh-link" href="news-events.html">See all</a>
       </div>
       <div class="zh-ne">
         <article class="zh-pcard zh-reveal">
@@ -375,7 +378,7 @@
         </div>
         <div class="zh-ctaband__actions">
           <a class="zh-btn zh-btn--light" href="#" data-zh-pending="Donate page URL">Give Today</a>
-          <a class="zh-btn zh-btn--ghost" href="#" data-zh-pending="Membership page URL">Become a Member</a>
+          <a class="zh-btn zh-btn--ghost" href="membership.html">Become a Member</a>
         </div>
       </div>
     </div>
@@ -383,17 +386,57 @@
 
 </main>
 
-<!-- PREVIEW FOOTER: the brief's footer links are still blank; WordPress theme footer replaces this. -->
+<!-- SITE FOOTER: identical on every page. Replace the [bracketed] details and the # links. -->
 <footer class="zh zh-site-footer">
   <div class="zh-wrap">
-    <div class="zh-footer-grid">
-      <a class="zh-logo" href="index.html">Zora's House</a>
-      <ul class="zh-footer-links">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="about.html">About</a></li>
+    <div class="zh-footer__grid">
+      <div class="zh-footer__about">
+        <p class="zh-footer__brand">Zora's House</p>
+        <p>1393 N 4th St<br>Columbus, OH 43201</p>
+        <p>[Opening hours] · Home of The Purple Door Cafe</p>
+        <p class="zh-footer__email"><a href="mailto:hello@example.com" data-zh-pending="Zora's House email address">[ZH email address]</a></p>
+      </div>
+      <div>
+        <p class="zh-footer__title">Explore</p>
+        <ul class="zh-footer__links">
+          <li><a href="about.html">Who we are</a></li>
+          <li><a href="individuals.html">What we offer</a></li>
+          <li><a href="about.html#zh-impact">Impact</a></li>
+          <li><a href="news-events.html">News &amp; events</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="zh-footer__title">Get involved</p>
+        <ul class="zh-footer__links">
+          <li><a href="membership.html">Membership</a></li>
+          <li><a href="#" data-zh-pending="Donate page URL">Give</a></li>
+          <li><a href="contact.html?topic=Partnering%20with%20Zora%E2%80%99s%20House">Partner with us</a></li>
+          <li><a href="contact.html?topic=Visiting%20or%20booking%20the%20House">Visit the House</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="zh-footer__title">Get our newsletter</p>
+        <!-- Connect a mailing-list provider: add action="<provider form URL>" method="post"
+             (and rename the input to the provider's field name, e.g. EMAIL for Mailchimp). -->
+        <form class="zh-signup" data-zh-newsletter>
+          <label for="zh-signup-email">Email address</label>
+          <div class="zh-signup__row">
+            <input id="zh-signup-email" type="email" name="EMAIL" placeholder="you@example.com" autocomplete="email" required>
+            <button type="submit">Sign up</button>
+          </div>
+          <p class="zh-signup__msg" role="status" hidden></p>
+        </form>
+      </div>
+    </div>
+    <div class="zh-footer__bottom">
+      <p>© 2026 Zora's House, Inc.</p>
+      <ul class="zh-footer__legal">
+        <li><a href="#" data-zh-pending="Privacy policy URL">Privacy Policy</a></li>
+        <li><a href="#" data-zh-pending="Instagram URL">Instagram</a></li>
+        <li><a href="#" data-zh-pending="LinkedIn URL">LinkedIn</a></li>
+        <li><a href="#" data-zh-pending="Facebook URL">Facebook</a></li>
       </ul>
     </div>
-    <p class="zh-footer-note">Footer links to be supplied.</p>
   </div>
 </footer>
 

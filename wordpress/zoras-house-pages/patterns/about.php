@@ -83,59 +83,75 @@ $zh_tl = static function ( $file, $alt, $date, $text ) use ( $zh_img ) {
 <!-- /wp:group --></section>
 <!-- /wp:group -->
 
-<!-- wp:group {"tagName":"section","align":"full","className":"zh zh-section zh-section--cream"} -->
-<section class="wp-block-group alignfull zh zh-section zh-section--cream"><!-- wp:group {"className":"zh-wrap zh-mv"} -->
-<div class="wp-block-group zh-wrap zh-mv"><!-- wp:group {"className":"zh-card"} -->
-<div class="wp-block-group zh-card"><!-- wp:paragraph {"className":"zh-eyebrow"} -->
-<p class="zh-eyebrow">Our Mission</p>
-<!-- /wp:paragraph -->
+<?php
+// phpcs:disable WordPress.Security.EscapeOutput -- every helper escapes its own output.
+/*
+ * Mission: the statement and ecosystem paragraph beside the four numbered pillars.
+ */
+echo zh_pages_open( 'zh zh-section zh-section--cream', 'section', true ) . zh_pages_open( 'zh-wrap zh-split' )
+	. zh_pages_open( 'zh-mission' )
+	. zh_pages_para( 'Our Mission', 'zh-eyebrow' ) . "\n\n"
+	. zh_pages_para( 'Zora’s House is a nonprofit that exists to ensure that women of color and gender expansive people of color (women+) of color have the space, skills, and strategic relationships we need to thrive personally and professionally.', 'zh-statement' ) . "\n\n"
+	. zh_pages_para( 'We know that lasting change requires more than any one program, resource, or intervention. We invest in the whole ecosystem that helps women+ of color and our communities become stronger, more connected, and more resilient.', 'zh-lead' )
+	. zh_pages_close() . "\n\n"
+	. zh_pages_open( 'zh-mission__pillars' )
+	. zh_pages_heading( 'Our work is grounded in four interconnected pillars:', 3 ) . "\n\n"
+	. '<!-- wp:list {"ordered":true,"className":"zh-pillar-list"} -->' . "\n"
+	. '<ol class="wp-block-list zh-pillar-list">'
+	. implode(
+		"\n\n",
+		array_map(
+			static function ( $pillar ) {
+				return '<!-- wp:list-item -->' . "\n" . '<li>' . esc_html( $pillar ) . '</li>' . "\n" . '<!-- /wp:list-item -->';
+			},
+			array( 'Relational', 'Economic', 'Holistic', 'Systemic' )
+		)
+	)
+	. '</ol>' . "\n" . '<!-- /wp:list -->'
+	. zh_pages_close() . zh_pages_close() . zh_pages_close( 'section' );
+?>
 
-<!-- wp:paragraph -->
-<p>Zora’s House is a nonprofit that exists to ensure that women of color and gender expansive people of color (women+) of color have the space, skills, and strategic relationships we need to thrive personally and professionally.</p>
-<!-- /wp:paragraph -->
+<?php
+/*
+ * Vision: full-width gradient band. Italic words in the closing line turn pink.
+ */
+echo zh_pages_open( 'zh zh-grad zh-vision', 'section', true ) . zh_pages_open( 'zh-wrap' )
+	. '<!-- wp:paragraph {"align":"center","className":"zh-eyebrow"} -->' . "\n" . '<p class="has-text-align-center zh-eyebrow">Our Vision</p>' . "\n" . '<!-- /wp:paragraph -->' . "\n\n"
+	. '<!-- wp:paragraph {"align":"center","className":"zh-lead"} -->' . "\n" . '<p class="has-text-align-center zh-lead">The world that Zora’s House is creating is a world that recognizes the full humanity of Black, Indigenous, and other people of color; and creates space for these communities to thrive, not just survive. To feel safe. To have joy. To dream, create, and lead, free from the burden of patriarchy, white supremacy, and other forms of oppression.</p>' . "\n" . '<!-- /wp:paragraph -->' . "\n\n"
+	. '<!-- wp:paragraph {"align":"center","className":"zh-vision__line"} -->' . "\n" . '<p class="has-text-align-center zh-vision__line">That world starts with <em>women of color.</em></p>' . "\n" . '<!-- /wp:paragraph -->'
+	. zh_pages_close() . zh_pages_close( 'section' );
+?>
 
-<!-- wp:paragraph -->
-<p>Our work is grounded in four interconnected pillars:</p>
-<!-- /wp:paragraph -->
+<?php
+/*
+ * Who We Serve: audience introduction and three audience cards.
+ */
+$zh_audience = static function ( $title ) {
+	return zh_pages_open( 'zh-aud' ) . zh_pages_heading( $title, 3 ) . "\n\n" . zh_pages_para( '[One sentence.]' ) . zh_pages_close();
+};
+echo zh_pages_open( 'zh zh-section', 'section', true ) . zh_pages_open( 'zh-wrap' )
+	. zh_pages_heading( 'Who We Serve' ) . "\n\n"
+	. zh_pages_para( '[Audience description in Zora’s House’s own language, written to the reader: who she is, what she is building, what she needs.]', 'zh-lead' ) . "\n\n"
+	. zh_pages_open( 'zh-cards3' )
+	. $zh_audience( 'Entrepreneurs' ) . "\n\n" . $zh_audience( 'Creatives & Scholars' ) . "\n\n" . $zh_audience( 'Activists & Leaders' )
+	. zh_pages_close() . zh_pages_close() . zh_pages_close( 'section' );
+?>
 
-<!-- wp:group {"className":"zh-pillars"} -->
-<div class="wp-block-group zh-pillars"><!-- wp:paragraph -->
-<p>Relational</p>
-<!-- /wp:paragraph -->
-
-<!-- wp:paragraph -->
-<p>Economic</p>
-<!-- /wp:paragraph -->
-
-<!-- wp:paragraph -->
-<p>Holistic</p>
-<!-- /wp:paragraph -->
-
-<!-- wp:paragraph -->
-<p>Systemic</p>
-<!-- /wp:paragraph --></div>
-<!-- /wp:group -->
-
-<!-- wp:paragraph -->
-<p>We know that lasting change requires more than any one program, resource, or intervention. We invest in the whole ecosystem that helps women+ of color and our communities become stronger, more connected, and more resilient.</p>
-<!-- /wp:paragraph --></div>
-<!-- /wp:group -->
-
-<!-- wp:group {"className":"zh-card zh-card--teal"} -->
-<div class="wp-block-group zh-card zh-card--teal"><!-- wp:paragraph {"className":"zh-eyebrow"} -->
-<p class="zh-eyebrow">Our Vision</p>
-<!-- /wp:paragraph -->
-
-<!-- wp:paragraph -->
-<p>The world that Zora’s House is creating is a world that recognizes the full humanity of Black, Indigenous, and other people of color; and creates space for these communities to thrive, not just survive. To feel safe. To have joy. To dream, create, and lead, free from the burden of patriarchy, white supremacy, and other forms of oppression.</p>
-<!-- /wp:paragraph -->
-
-<!-- wp:paragraph {"className":"zh-card__quote"} -->
-<p class="zh-card__quote">That world starts with women of color.</p>
-<!-- /wp:paragraph --></div>
-<!-- /wp:group --></div>
-<!-- /wp:group --></section>
-<!-- /wp:group -->
+<?php
+/*
+ * Issues & Impact: numbers banner with a title. Numbers in [brackets] show as placeholders.
+ */
+$zh_stat = static function ( $num, $label ) {
+	return zh_pages_open( 'zh-stat' ) . zh_pages_para( $num, 'zh-stat__num' ) . "\n\n" . zh_pages_para( $label, 'zh-stat__label' ) . zh_pages_close();
+};
+echo zh_pages_open( 'zh zh-grad', 'section', true ) . zh_pages_open( 'zh-wrap zh-stats zh-stats--titled' )
+	. zh_pages_heading( 'Issues & Impact', 2, 'zh-stats__title' ) . "\n\n"
+	. $zh_stat( '3,000+', 'Women of color supported since 2018' ) . "\n\n"
+	. $zh_stat( '[000]', '[Impact metric]' ) . "\n\n"
+	. $zh_stat( '[000]', '[Impact metric]' )
+	. zh_pages_close() . zh_pages_close( 'section' );
+// phpcs:enable
+?>
 
 <!-- wp:group {"tagName":"section","align":"full","className":"zh zh-section"} -->
 <section class="wp-block-group alignfull zh zh-section"><!-- wp:group {"className":"zh-wrap zh-split"} -->
@@ -269,17 +285,18 @@ echo "\n\n";
 <!-- /wp:button --></div>
 <!-- /wp:buttons -->
 
-<!-- wp:heading {"level":3,"className":"zh-mt"} -->
-<h3 class="wp-block-heading zh-mt">Our Board</h3>
-<!-- /wp:heading -->
-
-<!-- wp:paragraph -->
-<p>Our Board of Directors helps steward the mission, resources, and long-term future of Zora’s House.</p>
-<!-- /wp:paragraph -->
-
-<!-- wp:list {"className":"zh-board"} -->
-<ul class="wp-block-list zh-board"><?php echo implode( "\n\n", array_fill( 0, 6, $zh_board ) ); // phpcs:ignore WordPress.Security.EscapeOutput ?></ul>
-<!-- /wp:list --></div>
+<?php
+// Our Board: heading and intro on the left, names in two columns on the right.
+echo zh_pages_open( 'zh-board-wrap' ) // phpcs:ignore WordPress.Security.EscapeOutput -- helpers escape their own output; $zh_board is static markup.
+	. zh_pages_open( 'zh-board-wrap__intro' )
+	. zh_pages_heading( 'Our Board', 3 ) . "\n\n"
+	. zh_pages_para( 'Our Board of Directors helps steward the mission, resources, and long-term future of Zora’s House.' )
+	. zh_pages_close() . "\n\n"
+	. '<!-- wp:list {"className":"zh-board"} -->' . "\n"
+	. '<ul class="wp-block-list zh-board">' . implode( "\n\n", array_fill( 0, 6, $zh_board ) ) . '</ul>' . "\n"
+	. '<!-- /wp:list -->'
+	. zh_pages_close();
+?></div>
 <!-- /wp:group --></section>
 <!-- /wp:group -->
 

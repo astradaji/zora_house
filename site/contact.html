@@ -1,0 +1,169 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Zora's House | Contact</title>
+  <meta name="description" content="Get in touch with Zora's House: send us a message, visit, or email us.">
+  <link rel="preload" href="assets/font/brandon%20text/HVD%20Fonts%20-%20BrandonText-Bold.otf" as="font" type="font/otf" crossorigin>
+  <link rel="stylesheet" href="assets/css/zora.css">
+  <style>body { margin: 0; background: #fff; }</style>
+</head>
+<body>
+
+<!-- SITE HEADER: identical on every page. -->
+<header class="zh zh-site-header">
+  <div class="zh-wrap">
+    <a class="zh-logo" href="index.html"><span class="zh-logo__mark" aria-hidden="true">Z</span><span class="zh-logo__name">Zora's <span>House</span></span></a>
+    <button class="zh-nav-toggle" aria-controls="zh-nav" aria-expanded="false" aria-label="Menu"><span></span><span></span><span></span></button>
+    <nav class="zh-nav" id="zh-nav" aria-label="Main">
+      <ul>
+        <li><a href="about.html">Who we are</a></li>
+        <li><a href="individuals.html">What we offer</a></li>
+        <li><a href="about.html#zh-impact">Impact</a></li>
+        <li><a href="news-events.html">News &amp; events</a></li>
+        <li><a href="contact.html" aria-current="page">Contact</a></li>
+        <li><a class="zh-btn zh-btn--primary" href="#" data-zh-pending="Donate page URL">Give</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<!-- Contact Inquiry template (D4). Copy this file for a Partnership Inquiry page and change the topics. -->
+<main class="zh">
+
+  <!-- ============ HERO ============ -->
+  <section class="zh-hero zh-hero--compact">
+    <div class="zh-hero__media">
+      <img src="assets/images/home/zora-shouse2024-310.jpg"
+           srcset="assets/images/home/zora-shouse2024-310-800.jpg 800w, assets/images/home/zora-shouse2024-310.jpg 1600w"
+           sizes="100vw" alt="A 'Welcome to Zora's House' letter board on a deep rose wall" fetchpriority="high">
+    </div>
+    <div class="zh-wrap">
+      <div class="zh-hero__content">
+        <nav class="zh-crumbs" aria-label="Breadcrumb"><a href="index.html">Home</a> <span aria-hidden="true">/</span> <span aria-current="page">Contact</span></nav>
+        <span class="zh-eyebrow">Contact</span>
+        <h1 class="zh-h1">Let’s talk.</h1>
+        <p class="zh-lead">[Why someone is here and what happens after they write to us.]</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FORM + INFO ============ -->
+  <section class="zh-section">
+    <div class="zh-wrap zh-contact">
+      <div class="zh-formcard zh-reveal">
+        <h2 class="zh-h2">Send us a message</h2>
+        <!-- This site has no server, so by default the form opens the visitor's email app with the
+             message filled in, addressed to data-zh-email. To receive messages directly instead,
+             create a form at a service such as Formspree and put its URL in data-zh-endpoint. -->
+        <form class="zh-form" id="zh-contact" data-zh-contact data-zh-email="hello@example.com" data-zh-endpoint="">
+          <p class="zh-form__notice" role="status" hidden></p>
+          <div class="zh-form__row">
+            <p class="zh-form__field">
+              <label for="zh-name">Name</label>
+              <input id="zh-name" name="name" type="text" autocomplete="name" required maxlength="120">
+            </p>
+            <p class="zh-form__field">
+              <label for="zh-email">Email</label>
+              <input id="zh-email" name="email" type="email" autocomplete="email" required maxlength="190">
+            </p>
+          </div>
+          <p class="zh-form__field">
+            <label for="zh-topic">I’m reaching out about</label>
+            <select id="zh-topic" name="topic">
+              <option>Membership</option>
+              <option>Programs &amp; leadership</option>
+              <option>Events &amp; retreats</option>
+              <option>Partnering with Zora’s House</option>
+              <option>Visiting or booking the House</option>
+              <option>Something else</option>
+            </select>
+          </p>
+          <p class="zh-form__field">
+            <label for="zh-message">Message</label>
+            <textarea id="zh-message" name="message" rows="7" required maxlength="5000"></textarea>
+          </p>
+          <button class="zh-btn zh-btn--primary" type="submit">Send message</button>
+        </form>
+        <p class="zh-formcard__note">[What happens next, e.g. reply time.]</p>
+      </div>
+
+      <div class="zh-infocards">
+        <div class="zh-info zh-reveal">
+          <h3 class="zh-h3">Visit</h3>
+          <p>1393 N 4th St<br>Columbus, OH 43201</p>
+          <p class="zh-info__muted">[Opening hours]</p>
+        </div>
+        <div class="zh-info zh-info--coral zh-reveal" data-delay="1">
+          <h3 class="zh-h3">Email</h3>
+          <p><a href="mailto:hello@example.com" data-zh-pending="Zora's House email address">[ZH email address]</a></p>
+        </div>
+        <div class="zh-info zh-info--grad zh-reveal" data-delay="2">
+          <h3 class="zh-h3">Partnering with us?</h3>
+          <p>[One sentence pointing partners to the Partnership Inquiry page.]</p>
+          <a class="zh-link" href="contact.html?topic=Partnering%20with%20Zora%E2%80%99s%20House">Partnership inquiry</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- SITE FOOTER: identical on every page. Replace the [bracketed] details and the # links. -->
+<footer class="zh zh-site-footer">
+  <div class="zh-wrap">
+    <div class="zh-footer__grid">
+      <div class="zh-footer__about">
+        <p class="zh-footer__brand">Zora's House</p>
+        <p>1393 N 4th St<br>Columbus, OH 43201</p>
+        <p>[Opening hours] · Home of The Purple Door Cafe</p>
+        <p class="zh-footer__email"><a href="mailto:hello@example.com" data-zh-pending="Zora's House email address">[ZH email address]</a></p>
+      </div>
+      <div>
+        <p class="zh-footer__title">Explore</p>
+        <ul class="zh-footer__links">
+          <li><a href="about.html">Who we are</a></li>
+          <li><a href="individuals.html">What we offer</a></li>
+          <li><a href="about.html#zh-impact">Impact</a></li>
+          <li><a href="news-events.html">News &amp; events</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="zh-footer__title">Get involved</p>
+        <ul class="zh-footer__links">
+          <li><a href="membership.html">Membership</a></li>
+          <li><a href="#" data-zh-pending="Donate page URL">Give</a></li>
+          <li><a href="contact.html?topic=Partnering%20with%20Zora%E2%80%99s%20House">Partner with us</a></li>
+          <li><a href="contact.html?topic=Visiting%20or%20booking%20the%20House">Visit the House</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="zh-footer__title">Get our newsletter</p>
+        <!-- Connect a mailing-list provider: add action="<provider form URL>" method="post"
+             (and rename the input to the provider's field name, e.g. EMAIL for Mailchimp). -->
+        <form class="zh-signup" data-zh-newsletter>
+          <label for="zh-signup-email">Email address</label>
+          <div class="zh-signup__row">
+            <input id="zh-signup-email" type="email" name="EMAIL" placeholder="you@example.com" autocomplete="email" required>
+            <button type="submit">Sign up</button>
+          </div>
+          <p class="zh-signup__msg" role="status" hidden></p>
+        </form>
+      </div>
+    </div>
+    <div class="zh-footer__bottom">
+      <p>© 2026 Zora's House, Inc.</p>
+      <ul class="zh-footer__legal">
+        <li><a href="#" data-zh-pending="Privacy policy URL">Privacy Policy</a></li>
+        <li><a href="#" data-zh-pending="Instagram URL">Instagram</a></li>
+        <li><a href="#" data-zh-pending="LinkedIn URL">LinkedIn</a></li>
+        <li><a href="#" data-zh-pending="Facebook URL">Facebook</a></li>
+      </ul>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/js/zora.js" defer></script>
+</body>
+</html>

@@ -12,16 +12,19 @@
 <body>
 
   
-<!-- PREVIEW HEADER: in WordPress the theme's own header/menu replaces this block. -->
+<!-- SITE HEADER: identical on every page. -->
 <header class="zh zh-site-header">
   <div class="zh-wrap">
-    <a class="zh-logo" href="index.html">Zora's <span>House</span></a>
+    <a class="zh-logo" href="index.html"><span class="zh-logo__mark" aria-hidden="true">Z</span><span class="zh-logo__name">Zora's <span>House</span></span></a>
     <button class="zh-nav-toggle" aria-controls="zh-nav" aria-expanded="false" aria-label="Menu"><span></span><span></span><span></span></button>
     <nav class="zh-nav" id="zh-nav" aria-label="Main">
       <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="about.html" aria-current="page">About</a></li>
-        <li><a class="zh-btn zh-btn--primary" href="#" data-zh-pending="Donate page URL">Invest</a></li>
+        <li><a href="about.html" aria-current="page">Who we are</a></li>
+        <li><a href="individuals.html">What we offer</a></li>
+        <li><a href="about.html#zh-impact">Impact</a></li>
+        <li><a href="news-events.html">News &amp; events</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a class="zh-btn zh-btn--primary" href="#" data-zh-pending="Donate page URL">Give</a></li>
       </ul>
     </nav>
   </div>
@@ -117,7 +120,7 @@
   <!-- ============ ISSUES & IMPACT ============
        Replace each pending stat like this:
        <span class="zh-stat__num">5,000+</span> and remove the zh-stat--pending class. -->
-  <section class="zh-grad" aria-labelledby="zh-issues-title">
+  <section class="zh-grad" id="zh-impact" aria-labelledby="zh-issues-title">
     <div class="zh-wrap">
       <div class="zh-stats zh-stats--titled">
         <h2 class="zh-h2 zh-stats__title zh-reveal" id="zh-issues-title">Issues &amp; Impact</h2>
@@ -306,7 +309,7 @@
           <div class="zh-pcard__body">
             <h3 class="zh-h3">See where we’ve been.</h3>
             <p>Read stories and national media coverage about Zora’s House and our work.</p>
-            <a class="zh-link" href="#" data-zh-pending="News + Press page URL">News + Press</a>
+            <a class="zh-link" href="news-events.html">News + Press</a>
           </div>
         </article>
         <article class="zh-pcard zh-reveal" data-delay="2">
@@ -314,7 +317,7 @@
           <div class="zh-pcard__body">
             <h3 class="zh-h3">Come say hello.</h3>
             <p>Have a question, an idea, or just not sure where to start?</p>
-            <a class="zh-link" href="#" data-zh-pending="Contact page URL">Contact Us</a>
+            <a class="zh-link" href="contact.html">Contact Us</a>
           </div>
         </article>
       </div>
@@ -339,17 +342,57 @@
 
 </main>
 
-<!-- PREVIEW FOOTER: the brief's footer links are still blank; WordPress theme footer replaces this. -->
+<!-- SITE FOOTER: identical on every page. Replace the [bracketed] details and the # links. -->
 <footer class="zh zh-site-footer">
   <div class="zh-wrap">
-    <div class="zh-footer-grid">
-      <a class="zh-logo" href="index.html">Zora's House</a>
-      <ul class="zh-footer-links">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="about.html">About</a></li>
+    <div class="zh-footer__grid">
+      <div class="zh-footer__about">
+        <p class="zh-footer__brand">Zora's House</p>
+        <p>1393 N 4th St<br>Columbus, OH 43201</p>
+        <p>[Opening hours] · Home of The Purple Door Cafe</p>
+        <p class="zh-footer__email"><a href="mailto:hello@example.com" data-zh-pending="Zora's House email address">[ZH email address]</a></p>
+      </div>
+      <div>
+        <p class="zh-footer__title">Explore</p>
+        <ul class="zh-footer__links">
+          <li><a href="about.html">Who we are</a></li>
+          <li><a href="individuals.html">What we offer</a></li>
+          <li><a href="about.html#zh-impact">Impact</a></li>
+          <li><a href="news-events.html">News &amp; events</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="zh-footer__title">Get involved</p>
+        <ul class="zh-footer__links">
+          <li><a href="membership.html">Membership</a></li>
+          <li><a href="#" data-zh-pending="Donate page URL">Give</a></li>
+          <li><a href="contact.html?topic=Partnering%20with%20Zora%E2%80%99s%20House">Partner with us</a></li>
+          <li><a href="contact.html?topic=Visiting%20or%20booking%20the%20House">Visit the House</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="zh-footer__title">Get our newsletter</p>
+        <!-- Connect a mailing-list provider: add action="<provider form URL>" method="post"
+             (and rename the input to the provider's field name, e.g. EMAIL for Mailchimp). -->
+        <form class="zh-signup" data-zh-newsletter>
+          <label for="zh-signup-email">Email address</label>
+          <div class="zh-signup__row">
+            <input id="zh-signup-email" type="email" name="EMAIL" placeholder="you@example.com" autocomplete="email" required>
+            <button type="submit">Sign up</button>
+          </div>
+          <p class="zh-signup__msg" role="status" hidden></p>
+        </form>
+      </div>
+    </div>
+    <div class="zh-footer__bottom">
+      <p>© 2026 Zora's House, Inc.</p>
+      <ul class="zh-footer__legal">
+        <li><a href="#" data-zh-pending="Privacy policy URL">Privacy Policy</a></li>
+        <li><a href="#" data-zh-pending="Instagram URL">Instagram</a></li>
+        <li><a href="#" data-zh-pending="LinkedIn URL">LinkedIn</a></li>
+        <li><a href="#" data-zh-pending="Facebook URL">Facebook</a></li>
       </ul>
     </div>
-    <p class="zh-footer-note">Footer links to be supplied.</p>
   </div>
 </footer>
 

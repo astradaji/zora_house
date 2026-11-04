@@ -140,8 +140,94 @@
     track.setAttribute('tabindex', '0');
   });
 
+  /* ---- Events page: Category / Month filters and "Show more events" ----
+     Options come from each event row's tag (.zh-erow__tag) and month (.zh-date__mon). */
+  document.querySelectorAll('.zh-events').forEach(function (wrap) {
+    var list = wrap.querySelector('.zh-elist');
+    if (!list) return;
+    var rows = Array.prototype.slice.call(list.querySelectorAll(':scope > .zh-erow'));
+    if (!rows.length) return;
+    var PAGE = 5;
+    var limit = PAGE;
+
+    function textOf(row, sel) {
+      var el = row.querySelector(sel);
+      return el ? el.textContent.trim() : '';
+    }
+    function uniq(values) {
+      return values.filter(function (v, i) { return v && values.indexOf(v) === i; });
+    }
+    function makeSelect(label, allLabel, values) {
+      var n = ++uid;
+      var lab = document.createElement('label');
+      lab.setAttribute('for', 'zh-efilter-' + n);
+      lab.textContent = label;
+      var sel = document.createElement('select');
+      sel.id = 'zh-efilter-' + n;
+      [allLabel].concat(values).forEach(function (v, i) {
+        var o = document.createElement('option');
+        o.value = i ? v : '';
+        o.textContent = v;
+        sel.appendChild(o);
+      });
+      lab.appendChild(sel);
+      return { label: lab, select: sel };
+    }
+
+    var cat = makeSelect('Category', 'All events', uniq(rows.map(function (r) { return textOf(r, '.zh-erow__tag'); })));
+    var mon = makeSelect('Month', 'Upcoming', uniq(rows.map(function (r) { return textOf(r, '.zh-date__mon'); })));
+    var count = document.createElement('p');
+    count.className = 'zh-efilter__count';
+    count.setAttribute('aria-live', 'polite');
+    var bar = document.createElement('div');
+    bar.className = 'zh-efilter';
+    bar.appendChild(cat.label);
+    bar.appendChild(mon.label);
+    bar.appendChild(count);
+    wrap.insertBefore(bar, wrap.firstChild);
+
+    var empty = document.createElement('p');
+    empty.className = 'zh-eempty';
+    empty.textContent = 'No events match these filters yet.';
+    var more = document.createElement('div');
+    more.className = 'zh-emore';
+    var moreBtn = document.createElement('button');
+    moreBtn.type = 'button';
+    moreBtn.textContent = 'Show more events';
+    more.appendChild(moreBtn);
+    list.parentNode.insertBefore(empty, list.nextSibling);
+    list.parentNode.insertBefore(more, empty.nextSibling);
+
+    function apply() {
+      var c = cat.select.value;
+      var m = mon.select.value;
+      var matches = 0;
+      rows.forEach(function (row) {
+        var ok = (!c || textOf(row, '.zh-erow__tag') === c) && (!m || textOf(row, '.zh-date__mon') === m);
+        if (ok) matches++;
+        row.hidden = !ok || matches > limit;
+      });
+      empty.hidden = matches > 0;
+      more.hidden = matches <= limit;
+      count.textContent = matches + (matches === 1 ? ' event' : ' events');
+    }
+    [cat.select, mon.select].forEach(function (s) {
+      s.addEventListener('change', function () { limit = PAGE; apply(); });
+    });
+    moreBtn.addEventListener('click', function () { limit += PAGE; apply(); });
+    apply();
+  });
+
+  /* ---- Global header: mark the menu link for the current page ---- */
+  var here = location.pathname.replace(/\/+$/, '');
+  document.querySelectorAll('.zh-header .wp-block-navigation-item__content').forEach(function (a) {
+    if (a.host === location.host && a.pathname.replace(/\/+$/, '') === here && here !== '') {
+      a.setAttribute('aria-current', 'page');
+    }
+  });
+
   /* ---- Scroll reveal ---- */
-  var reveals = document.querySelectorAll('.zh-split > *, .zh-card, .zh-pcard, .zh-person, .zh-stat, .zh-news, .zh-paths');
+  var reveals = document.querySelectorAll('.zh-split > *, .zh-card, .zh-pcard, .zh-person, .zh-stat, .zh-news, .zh-paths, .zh-fact, .zh-ecard, .zh-feature, .zh-formcard, .zh-info, .zh-ctaband');
   if ('IntersectionObserver' in window && !reduceMotion) {
     var io = new IntersectionObserver(function (entries) {
       entries.forEach(function (entry) {

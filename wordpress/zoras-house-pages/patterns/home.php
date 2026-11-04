@@ -238,6 +238,48 @@ defined( 'ABSPATH' ) || exit;
 <!-- /wp:group --></section>
 <!-- /wp:group -->
 
+<?php
+// phpcs:disable WordPress.Security.EscapeOutput -- every helper escapes its own output.
+/*
+ * What We Offer: four linked photo cards.
+ */
+$zh_offer = static function ( $image, $alt, $title ) {
+	return zh_pages_open( 'zh-pcard' ) . zh_pages_image( $image, $alt ) . "\n\n"
+		. zh_pages_open( 'zh-pcard__body' )
+		. zh_pages_heading( $title, 3 ) . "\n\n"
+		. zh_pages_para( '[One-line summary.]' )
+		. zh_pages_close() . zh_pages_close();
+};
+echo zh_pages_open( 'zh zh-section', 'section', true ) . zh_pages_open( 'zh-wrap' )
+	. zh_pages_open( 'zh-sechead' ) . zh_pages_heading( 'What We Offer' ) . "\n\n"
+	. zh_pages_buttons( array( array( 'Explore everything', home_url( '/what-we-offer/' ), 'link' ) ) ) . zh_pages_close() . "\n\n"
+	. zh_pages_open( 'zh-cards4' )
+	. $zh_offer( $zh_img( 'home/zora-shouse66-800.jpg' ), 'Two women laughing together on a couch at Zora’s House', 'Membership & Coworking' ) . "\n\n"
+	. $zh_offer( $zh_img( 'home/zora-shouse2024-374-800.jpg' ), 'A woman smiling during a working meeting at Zora’s House', 'Programs & Leadership' ) . "\n\n"
+	. $zh_offer( $zh_img( 'home/joyfest2026-108-800.jpg' ), 'Two smiling women at an outdoor Zora’s House festival', 'Events & Retreats' ) . "\n\n"
+	. $zh_offer( $zh_img( 'home/dsc-4885-800.jpg' ), 'A community gathering around dinner tables inside Zora’s House', 'The House & Cafe' )
+	. zh_pages_close() . zh_pages_close() . zh_pages_close( 'section' );
+?>
+
+<?php
+/*
+ * Who We Are: video (photo placeholder until the video is supplied) beside a short introduction.
+ * To add the video: select the photo and replace it with a Video or YouTube/Vimeo Embed block.
+ */
+echo zh_pages_open( 'zh zh-section zh-section--cream', 'section', true ) . zh_pages_open( 'zh-wrap zh-split' )
+	. zh_pages_open( 'zh-video' )
+	. zh_pages_image( $zh_img( 'home/zora-shouse2024-397-1.jpg' ), 'Two smiling women inside the Zora’s House community space' ) . "\n\n"
+	. zh_pages_para( '2–3 min video: how Zora’s House works in the community', 'zh-video__caption' )
+	. zh_pages_close() . "\n\n"
+	. zh_pages_open( 'zh-intro' )
+	. zh_pages_para( 'Who We Are', 'zh-eyebrow' ) . "\n\n"
+	. zh_pages_heading( 'More than a house. A community built by and for women of color.' ) . "\n\n"
+	. zh_pages_para( '[Two or three sentences in Zora’s House’s voice on who the House is for and how it works.]', 'zh-lead' ) . "\n\n"
+	. zh_pages_buttons( array( array( 'Meet Zora’s House', home_url( '/about/' ), 'link' ) ) )
+	. zh_pages_close() . zh_pages_close() . zh_pages_close( 'section' );
+// phpcs:enable
+?>
+
 <!-- wp:group {"tagName":"section","align":"full","className":"zh zh-section"} -->
 <section class="wp-block-group alignfull zh zh-section"><!-- wp:group {"className":"zh-wrap zh-split zh-split--rev"} -->
 <div class="wp-block-group zh-wrap zh-split zh-split--rev"><!-- wp:image {"className":"zh-split__media"} -->
@@ -266,6 +308,52 @@ defined( 'ABSPATH' ) || exit;
 <!-- /wp:group --></section>
 <!-- /wp:group -->
 
+<?php
+// phpcs:disable WordPress.Security.EscapeOutput -- every helper escapes its own output.
+/*
+ * Ways to Partner: three cards with an icon, title, sentence and link.
+ */
+$zh_partner = static function ( $n ) {
+	return zh_pages_open( 'zh-icard' )
+		. zh_pages_heading( '[Partnership option ' . $n . ']', 3 ) . "\n\n"
+		. zh_pages_para( '[What it involves, in one sentence.]' ) . "\n\n"
+		. zh_pages_buttons( array( array( 'Learn more', home_url( '/partner/' ), 'link' ) ) )
+		. zh_pages_close();
+};
+echo zh_pages_open( 'zh zh-section zh-section--cream', 'section', true ) . zh_pages_open( 'zh-wrap' )
+	. zh_pages_heading( 'Ways to Partner' ) . "\n\n"
+	. zh_pages_para( '[One sentence for companies, funders and community organizations.]', 'zh-lead' ) . "\n\n"
+	. zh_pages_open( 'zh-cards3' ) . $zh_partner( 1 ) . "\n\n" . $zh_partner( 2 ) . "\n\n" . $zh_partner( 3 ) . zh_pages_close()
+	. zh_pages_close() . zh_pages_close( 'section' );
+?>
+
+<?php
+/*
+ * News & Events: one featured news story beside the next two events.
+ */
+$zh_home_event = static function () {
+	return zh_pages_open( 'zh-ecard' ) . zh_pages_date_badge() . "\n\n"
+		. zh_pages_open( 'zh-ecard__body' )
+		. zh_pages_heading( '[Event title]', 3, 'zh-ecard__title' ) . "\n\n"
+		. zh_pages_para( '[Time] · [Location]', 'zh-ecard__meta' ) . "\n\n"
+		. zh_pages_buttons( array( array( 'Register on Eventbrite', '#', 'link' ) ) )
+		. zh_pages_close() . zh_pages_close();
+};
+echo zh_pages_open( 'zh zh-section', 'section', true ) . zh_pages_open( 'zh-wrap' )
+	. zh_pages_open( 'zh-sechead' ) . zh_pages_heading( 'News & Events' ) . "\n\n"
+	. zh_pages_buttons( array( array( 'See all', home_url( '/news-events/' ), 'link' ) ) ) . zh_pages_close() . "\n\n"
+	. zh_pages_open( 'zh-ne' )
+	. zh_pages_open( 'zh-pcard' ) . zh_pages_image( $zh_img( 'about/dsc-4872-800.jpg' ), 'Two women in conversation during a live panel at Zora’s House' ) . "\n\n"
+	. zh_pages_open( 'zh-pcard__body' )
+	. zh_pages_para( 'News · [Date]', 'zh-eyebrow' ) . "\n\n"
+	. zh_pages_heading( '[News headline]', 3 ) . "\n\n"
+	. zh_pages_buttons( array( array( 'Read more', '#', 'link' ) ) )
+	. zh_pages_close() . zh_pages_close() . "\n\n"
+	. zh_pages_open( 'zh-ne__events' ) . $zh_home_event() . "\n\n" . $zh_home_event() . zh_pages_close()
+	. zh_pages_close() . zh_pages_close() . zh_pages_close( 'section' );
+// phpcs:enable
+?>
+
 <!-- wp:group {"tagName":"section","align":"full","className":"zh zh-section zh-section--blush"} -->
 <section class="wp-block-group alignfull zh zh-section zh-section--blush"><!-- wp:group {"className":"zh-wrap"} -->
 <div class="wp-block-group zh-wrap"><!-- wp:group {"className":"zh-news"} -->
@@ -291,3 +379,15 @@ defined( 'ABSPATH' ) || exit;
 <!-- /wp:group --></div>
 <!-- /wp:group --></section>
 <!-- /wp:group -->
+
+<?php
+// Closing call to action.
+echo zh_pages_cta_band( // phpcs:ignore WordPress.Security.EscapeOutput -- the helper escapes its own output.
+	'We change spaces by being in spaces.',
+	array(
+		array( 'Give Today', home_url( '/give/' ), 'light' ),
+		array( 'Become a Member', home_url( '/membership/' ), 'outline' ),
+	),
+	'[One line on what a gift makes possible.]'
+);
+?>
