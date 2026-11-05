@@ -1,0 +1,59 @@
+Content: EVENTS / CALENDAR PAGE
+
+Hero / Page Title
+What's Happening at the House
+
+Calendar Overview
+Here’s a snapshot of events taking place at Zora’s House. Each event is hosted by either our organization or one of our Collaborative partner organizations. Most events are open to all to attend, while some are specifically for our Members. To let us know you’re coming, follow the registration prompt on each event’s page on Eventbrite, Zora’s World, or other partner event platforms. Keep scrolling to find out what’s happening at the House!
+
+Filters / Event Categories
+Visitors should ideally be able to filter events based on categories such as:
+Open to Everyone
+Women+ of Color
+Members Only
+Allies
+The Collaborative
+Leadership
+Wealth
+Wellness
+Arts & Culture
+Community Events
+We should determine the final taxonomy later, but the template should be designed to accommodate multiple filter categories.
+If supported by the event technology, additional filters could include:
+Date
+In-person vs. virtual
+Free vs. paid
+Host organization
+
+Featured / Upcoming Event
+An optional section allowing us to highlight one particularly important upcoming event before the full calendar.
+Coming Up: Winter JoyFest
+[Image]
+[Short description]
+[Learn More / Register]
+This would give us an opportunity to promote flagship events without changing the overall calendar structure.
+
+Event Listing / Calendar
+The primary component of the page.
+Ideally visitors could toggle between:
+List View and Calendar View
+Each event preview should ideally show:
+Event title
+Date
+Time
+Location / virtual
+Image
+Event category
+Audience designation
+Host organization, particularly for Collaborative events
+Short description
+Registration Link (To external event platform, such as Eventbrite, Luma, etc.)
+
+Event Detail Experience
+Clicking each event should lead to the external registration page where visitors can get more information about it.
+
+Don't Miss What's Next
+Optional email capture at the bottom of the calendar:
+Want to know what's happening at the House?
+Sign up for event announcements and Zora's House updates.
+[Join the Newsletter] - link to newsletter sign up

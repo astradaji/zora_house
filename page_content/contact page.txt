@@ -1,0 +1,36 @@
+Content: CONTACT / INQUIRY PAGE
+Hero
+Get in touch!
+Short Explanation
+Need to reach us? Say less! Fill out this form, send a note via email (or snail mail), or give us a call.
+Email
+heygirlhey@zorashouse.com
+Address
+1393 N. 4th St.
+Columbus, OH 43201
+Phone Number
+614.594.1875
+
+Form
+Send us a message
+Name [short text input - required]
+Email Address [short text input - required]
+Inquiring about… [optional - dropdown (options include: Membership, Partnership, Press & Media, Development, Collaborative Partners, Other)]
+Enter Your Message [long text input - required]
+What Happens Next
+What happens after I submit this?
+For partnership inquiries:
+Our team reviews partnership inquiries monthly. If we see alignment and have the capacity to explore the opportunity, someone from our team will follow up.
+For Membership Inquiries:
+Thanks for reaching out! Our team reviews membership inquiries on a rolling basis and will get back to you as soon as possible. Visit our Membership page for details 24/7/365.
+For Press & Media Inquiries:
+Thank you for reaching out! Our team reviews media inquiries regularly. If we see alignment and have the capacity to explore the opportunity, someone from our team will follow up.
+For Development Inquiries:
+Thank you for reaching out! Our team reviews development inquiries on a rolling basis and will get back to you as soon as possible. For information on how to make a donation, visit our donation page.
+For Other Inquiries:
+Thank you for reaching out! Our team reviews all inquiries regularly and will respond as soon as we can.
+
+Looking for something else?
+
+[View Programs] - link to programs page
+

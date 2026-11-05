@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Zora's House | News &amp; Events</title>
-  <meta name="description" content="Programs, gatherings and community events at Zora's House, plus the latest news.">
+  <title>Zora's House | Events</title>
+  <meta name="description" content="What's happening at the House: events hosted by Zora's House and our Collaborative partner organizations.">
   <link rel="preload" href="assets/font/brandon%20text/HVD%20Fonts%20-%20BrandonText-Bold.otf" as="font" type="font/otf" crossorigin>
   <link rel="stylesheet" href="assets/css/zora.css">
   <style>body { margin: 0; background: #fff; }</style>
@@ -29,10 +29,14 @@
   </div>
 </header>
 
-<!-- Events template · News & events (D5).
-     Category / Month filters and "Show more events" are built from the event rows:
-     each row's .zh-erow__tag (category) and <small> in the date badge (month).
-     Copy an <article class="zh-erow"> to add an event; delete one to remove it. -->
+<!-- Events template · Events / Calendar page (D5).
+     Each event is one <article class="zh-erow">. Copy one to add an event; delete one to remove it.
+     The filters, the List / Calendar views and "Show more events" are built from each event's data- attributes:
+       data-date="YYYY-MM-DD"   (required: drives the Date filter, the calendar and the order; past events drop off the list)
+       data-category, data-audience   (separate several with commas, e.g. data-audience="Women+ of Color, Members Only")
+       data-format="In person | Virtual", data-cost="Free | Paid", data-host="Organization name"
+     A filter only appears when at least one event has that attribute.
+     The dates, titles and details below are placeholders. -->
 <main class="zh">
 
   <!-- ============ HERO ============ -->
@@ -45,60 +49,155 @@
     <div class="zh-wrap">
       <div class="zh-hero__content">
         <nav class="zh-crumbs" aria-label="Breadcrumb"><a href="index.html">Home</a> <span aria-hidden="true">/</span> <span aria-current="page">News &amp; events</span></nav>
-        <span class="zh-eyebrow">News &amp; events</span>
-        <h1 class="zh-h1">What’s happening at the House</h1>
-        <p class="zh-lead">[One line: programs, gatherings and community events. Registration happens on Eventbrite.]</p>
+        <span class="zh-eyebrow">Events</span>
+        <h1 class="zh-h1">What’s Happening at the House</h1>
       </div>
     </div>
   </section>
 
-  <!-- ============ EVENTS ============ -->
-  <section class="zh-section">
-    <div class="zh-wrap" data-zh-events>
+  <!-- ============ CALENDAR OVERVIEW + FEATURED EVENT ============ -->
+  <section class="zh-section zh-section--flushbottom">
+    <div class="zh-wrap">
+      <p class="zh-lead zh-measure zh-reveal">Here’s a snapshot of events taking place at Zora’s House. Each event is hosted by either our organization or one of our Collaborative partner organizations. Most events are open to all to attend, while some are specifically for our Members. To let us know you’re coming, follow the registration prompt on each event’s page on Eventbrite, Zora’s World, or other partner event platforms. Keep scrolling to find out what’s happening at the House!</p>
 
-      <article class="zh-feature zh-reveal">
-        <img src="assets/images/about/dsc-4872-800.jpg"
-             srcset="assets/images/about/dsc-4872-800.jpg 800w, assets/images/about/dsc-4872.jpg 1600w"
-             sizes="(max-width: 860px) 100vw, 600px" alt="Two women in conversation during a live panel at Zora's House" loading="lazy">
+      <!-- Optional: highlight one flagship event. Delete this <article> when there isn't one. -->
+      <article class="zh-feature zh-feature--spaced zh-reveal">
+        <img src="assets/images/home/joyfest2026-108-800.jpg"
+             srcset="assets/images/home/joyfest2026-108-800.jpg 800w, assets/images/home/joyfest2026-108.jpg 1600w"
+             sizes="(max-width: 860px) 100vw, 600px" alt="Two smiling women at an outdoor Zora's House festival" loading="lazy">
         <div class="zh-feature__body">
-          <span class="zh-eyebrow">Featured · [Date]</span>
-          <h2 class="zh-h2">[Featured event title]</h2>
-          <p class="zh-lead">[Two sentences on the event and who it is for.]</p>
-          <a class="zh-btn zh-btn--primary" href="#" data-zh-pending="Eventbrite URL">Register on Eventbrite</a>
+          <span class="zh-eyebrow">Coming Up · [Date]</span>
+          <h2 class="zh-h2">Winter JoyFest</h2>
+          <p class="zh-lead">[Short description]</p>
+          <a class="zh-btn zh-btn--primary" href="#" data-zh-pending="Winter JoyFest registration URL">Learn More &amp; Register</a>
         </div>
       </article>
+    </div>
+  </section>
 
+  <!-- ============ EVENT LISTING / CALENDAR ============ -->
+  <section class="zh-section">
+    <div class="zh-wrap" data-zh-events>
+      <h2 class="zh-h2">Upcoming events</h2>
       <div class="zh-elist">
-        <article class="zh-erow">
-          <div class="zh-event__date"><small>[Mon]</small><strong>[DD]</strong></div>
-          <div><p class="zh-erow__tag">Zora’s House program</p><h3 class="zh-event__title">[Event title]</h3><p class="zh-event__meta">[Day, time] · [Location]</p></div>
-          <a class="zh-btn zh-btn--ghost" href="#" data-zh-pending="Eventbrite URL">Register on Eventbrite</a>
+        <article class="zh-erow" data-date="2026-11-14" data-category="Community Events" data-audience="Open to Everyone" data-format="In person" data-cost="Free" data-host="Zora’s House">
+          <div class="zh-erow__media">
+            <img src="assets/images/home/dsc-4885-800.jpg" alt="" loading="lazy">
+            <div class="zh-event__date"><small>Nov</small><strong>14</strong></div>
+          </div>
+          <div class="zh-erow__body">
+            <p class="zh-erow__tag">Community Events · Open to Everyone</p>
+            <h3 class="zh-event__title"><a href="#" data-zh-pending="Event registration URL">[Event title]</a></h3>
+            <p class="zh-event__meta">Sat, Nov 14 · [Time] · Zora’s House (in person) · Free</p>
+            <p class="zh-erow__host">Hosted by Zora’s House</p>
+            <p class="zh-erow__desc">[Short description]</p>
+          </div>
+          <a class="zh-btn zh-btn--ghost" href="#" data-zh-pending="Event registration URL">Register</a>
         </article>
-        <article class="zh-erow">
-          <div class="zh-event__date"><small>[Mon]</small><strong>[DD]</strong></div>
-          <div><p class="zh-erow__tag">Workshop</p><h3 class="zh-event__title">[Event title]</h3><p class="zh-event__meta">[Day, time] · [Location]</p></div>
-          <a class="zh-btn zh-btn--ghost" href="#" data-zh-pending="Eventbrite URL">Register on Eventbrite</a>
+        <article class="zh-erow" data-date="2026-11-19" data-category="Wealth" data-audience="Women+ of Color" data-format="In person" data-cost="Paid" data-host="Zora’s House">
+          <div class="zh-erow__media">
+            <img src="assets/images/home/zora-shouse2024-374-800.jpg" alt="" loading="lazy">
+            <div class="zh-event__date"><small>Nov</small><strong>19</strong></div>
+          </div>
+          <div class="zh-erow__body">
+            <p class="zh-erow__tag">Wealth · Women+ of Color</p>
+            <h3 class="zh-event__title"><a href="#" data-zh-pending="Event registration URL">[Event title]</a></h3>
+            <p class="zh-event__meta">Thu, Nov 19 · [Time] · Zora’s House (in person) · [Price]</p>
+            <p class="zh-erow__host">Hosted by Zora’s House</p>
+            <p class="zh-erow__desc">[Short description]</p>
+          </div>
+          <a class="zh-btn zh-btn--ghost" href="#" data-zh-pending="Event registration URL">Register</a>
         </article>
-        <article class="zh-erow">
-          <div class="zh-event__date"><small>[Mon]</small><strong>[DD]</strong></div>
-          <div><p class="zh-erow__tag">Community calendar</p><h3 class="zh-event__title">[Event title]</h3><p class="zh-event__meta">[Day, time] · [Location]</p></div>
-          <a class="zh-btn zh-btn--ghost" href="#" data-zh-pending="Eventbrite URL">Register on Eventbrite</a>
+        <article class="zh-erow" data-date="2026-11-24" data-category="Wellness" data-audience="Members Only" data-format="Virtual" data-cost="Free" data-host="Zora’s House">
+          <div class="zh-erow__media">
+            <img src="assets/images/home/zora-shouse66-800.jpg" alt="" loading="lazy">
+            <div class="zh-event__date"><small>Nov</small><strong>24</strong></div>
+          </div>
+          <div class="zh-erow__body">
+            <p class="zh-erow__tag">Wellness · Members Only</p>
+            <h3 class="zh-event__title"><a href="#" data-zh-pending="Event registration URL">[Event title]</a></h3>
+            <p class="zh-event__meta">Tue, Nov 24 · [Time] · Virtual · Free</p>
+            <p class="zh-erow__host">Hosted by Zora’s House</p>
+            <p class="zh-erow__desc">[Short description]</p>
+          </div>
+          <a class="zh-btn zh-btn--ghost" href="#" data-zh-pending="Event registration URL">Register</a>
         </article>
-        <article class="zh-erow">
-          <div class="zh-event__date"><small>[Mon]</small><strong>[DD]</strong></div>
-          <div><p class="zh-erow__tag">Retreat</p><h3 class="zh-event__title">[Event title]</h3><p class="zh-event__meta">[Day, time] · [Location]</p></div>
-          <a class="zh-btn zh-btn--ghost" href="#" data-zh-pending="Eventbrite URL">Register on Eventbrite</a>
+        <article class="zh-erow" data-date="2026-12-04" data-category="The Collaborative" data-audience="Open to Everyone" data-format="In person" data-cost="Free" data-host="[Collaborative partner]">
+          <div class="zh-erow__media">
+            <img src="assets/images/about/dsc-4872-800.jpg" alt="" loading="lazy">
+            <div class="zh-event__date"><small>Dec</small><strong>04</strong></div>
+          </div>
+          <div class="zh-erow__body">
+            <p class="zh-erow__tag">The Collaborative · Open to Everyone</p>
+            <h3 class="zh-event__title"><a href="#" data-zh-pending="Event registration URL">[Event title]</a></h3>
+            <p class="zh-event__meta">Fri, Dec 4 · [Time] · Zora’s House (in person) · Free</p>
+            <p class="zh-erow__host">Hosted by [Collaborative partner]</p>
+            <p class="zh-erow__desc">[Short description]</p>
+          </div>
+          <a class="zh-btn zh-btn--ghost" href="#" data-zh-pending="Event registration URL">Register</a>
         </article>
-        <article class="zh-erow">
-          <div class="zh-event__date"><small>[Mon]</small><strong>[DD]</strong></div>
-          <div><p class="zh-erow__tag">Zora’s House program</p><h3 class="zh-event__title">[Event title]</h3><p class="zh-event__meta">[Day, time] · [Location]</p></div>
-          <a class="zh-btn zh-btn--ghost" href="#" data-zh-pending="Eventbrite URL">Register on Eventbrite</a>
+        <article class="zh-erow" data-date="2026-12-10" data-category="Leadership" data-audience="Women+ of Color" data-format="In person" data-cost="Paid" data-host="Zora’s House">
+          <div class="zh-erow__media">
+            <img src="assets/images/home/pfeifer-wocdei-fall-165-800.jpg" alt="" loading="lazy">
+            <div class="zh-event__date"><small>Dec</small><strong>10</strong></div>
+          </div>
+          <div class="zh-erow__body">
+            <p class="zh-erow__tag">Leadership · Women+ of Color</p>
+            <h3 class="zh-event__title"><a href="#" data-zh-pending="Event registration URL">[Event title]</a></h3>
+            <p class="zh-event__meta">Thu, Dec 10 · [Time] · Zora’s House (in person) · [Price]</p>
+            <p class="zh-erow__host">Hosted by Zora’s House</p>
+            <p class="zh-erow__desc">[Short description]</p>
+          </div>
+          <a class="zh-btn zh-btn--ghost" href="#" data-zh-pending="Event registration URL">Register</a>
         </article>
-        <article class="zh-erow">
-          <div class="zh-event__date"><small>[Mon]</small><strong>[DD]</strong></div>
-          <div><p class="zh-erow__tag">Workshop</p><h3 class="zh-event__title">[Event title]</h3><p class="zh-event__meta">[Day, time] · [Location]</p></div>
-          <a class="zh-btn zh-btn--ghost" href="#" data-zh-pending="Eventbrite URL">Register on Eventbrite</a>
+        <article class="zh-erow" data-date="2026-12-17" data-category="Arts &amp; Culture" data-audience="Allies" data-format="Virtual" data-cost="Free" data-host="Zora’s House">
+          <div class="zh-erow__media">
+            <img src="assets/images/home/dsc-3685-800.jpg" alt="" loading="lazy">
+            <div class="zh-event__date"><small>Dec</small><strong>17</strong></div>
+          </div>
+          <div class="zh-erow__body">
+            <p class="zh-erow__tag">Arts &amp; Culture · Allies</p>
+            <h3 class="zh-event__title"><a href="#" data-zh-pending="Event registration URL">[Event title]</a></h3>
+            <p class="zh-event__meta">Thu, Dec 17 · [Time] · Virtual · Free</p>
+            <p class="zh-erow__host">Hosted by Zora’s House</p>
+            <p class="zh-erow__desc">[Short description]</p>
+          </div>
+          <a class="zh-btn zh-btn--ghost" href="#" data-zh-pending="Event registration URL">Register</a>
         </article>
+        <article class="zh-erow" data-date="2027-01-08" data-category="Community Events" data-audience="Open to Everyone" data-format="In person" data-cost="Free" data-host="[Collaborative partner]">
+          <div class="zh-erow__media">
+            <img src="assets/images/about/img-4232-800.jpg" alt="" loading="lazy">
+            <div class="zh-event__date"><small>Jan</small><strong>08</strong></div>
+          </div>
+          <div class="zh-erow__body">
+            <p class="zh-erow__tag">Community Events · Open to Everyone</p>
+            <h3 class="zh-event__title"><a href="#" data-zh-pending="Event registration URL">[Event title]</a></h3>
+            <p class="zh-event__meta">Fri, Jan 8 · [Time] · Zora’s House (in person) · Free</p>
+            <p class="zh-erow__host">Hosted by [Collaborative partner]</p>
+            <p class="zh-erow__desc">[Short description]</p>
+          </div>
+          <a class="zh-btn zh-btn--ghost" href="#" data-zh-pending="Event registration URL">Register</a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ DON'T MISS WHAT'S NEXT (newsletter) ============
+       Point the button at the newsletter signup (the same one as Home's "I'm In"). -->
+  <section class="zh-section zh-section--blush">
+    <div class="zh-wrap">
+      <div class="zh-news zh-reveal">
+        <div class="zh-news__media">
+          <img src="assets/images/about/img-7129-1-800.jpg"
+               srcset="assets/images/about/img-7129-1-800.jpg 800w, assets/images/about/img-7129-1.jpg 1600w"
+               sizes="(max-width: 860px) 100vw, 600px" alt="A smiling woman at an outdoor community event" loading="lazy">
+        </div>
+        <div class="zh-news__body">
+          <span class="zh-eyebrow">Don’t Miss What’s Next</span>
+          <h2 class="zh-h2">Want to know what’s happening at the House?</h2>
+          <p>Sign up for event announcements and Zora’s House updates.</p>
+          <a class="zh-btn zh-btn--light" href="#" data-zh-pending="Newsletter signup URL">Join the Newsletter</a>
+        </div>
       </div>
     </div>
   </section>
@@ -109,7 +208,7 @@
       <h2 class="zh-h2 zh-reveal">Latest news</h2>
       <div class="zh-cards3">
         <article class="zh-pcard zh-reveal">
-          <img src="assets/images/about/img-7129-1-800.jpg" alt="A smiling woman at an outdoor community event" loading="lazy">
+          <img src="assets/images/about/img-2063-1-800.jpg" alt="Three smiling women posing together for a portrait" loading="lazy">
           <div class="zh-pcard__body">
             <span class="zh-eyebrow">[Date]</span>
             <h3 class="zh-h3">[News headline]</h3>
@@ -117,7 +216,7 @@
           </div>
         </article>
         <article class="zh-pcard zh-reveal" data-delay="1">
-          <img src="assets/images/home/zora-shouse2024-374-800.jpg" alt="A woman smiling during a working meeting at Zora's House" loading="lazy">
+          <img src="assets/images/home/zora-shouse2024-397-1-800.jpg" alt="Two smiling women inside the Zora's House community space" loading="lazy">
           <div class="zh-pcard__body">
             <span class="zh-eyebrow">[Date]</span>
             <h3 class="zh-h3">[News headline]</h3>
@@ -125,7 +224,7 @@
           </div>
         </article>
         <article class="zh-pcard zh-reveal" data-delay="2">
-          <img src="assets/images/home/dsc-3685-800.jpg" alt="A woman in a green dress posing beneath a pink neon sign at Zora's House" loading="lazy">
+          <img src="assets/images/about/dsc-4536-800.jpg" alt="Women chatting and laughing at a Zora's House gathering" loading="lazy">
           <div class="zh-pcard__body">
             <span class="zh-eyebrow">[Date]</span>
             <h3 class="zh-h3">[News headline]</h3>
@@ -136,29 +235,17 @@
     </div>
   </section>
 
-  <!-- ============ CLOSING CTA BAND ============ -->
-  <section class="zh-section zh-section--tight">
-    <div class="zh-wrap">
-      <div class="zh-ctaband zh-grad zh-reveal">
-        <h2 class="zh-h2">Hosting a community event? Tell us about it.</h2>
-        <div class="zh-ctaband__actions">
-          <a class="zh-btn zh-btn--light" href="contact.html?topic=Something%20else">Share your event</a>
-        </div>
-      </div>
-    </div>
-  </section>
-
 </main>
 
-<!-- SITE FOOTER: identical on every page. Replace the [bracketed] details and the # links. -->
+<!-- SITE FOOTER: identical on every page. Replace the # links. -->
 <footer class="zh zh-site-footer">
   <div class="zh-wrap">
     <div class="zh-footer__grid">
       <div class="zh-footer__about">
         <p class="zh-footer__brand">Zora's House</p>
-        <p>1393 N 4th St<br>Columbus, OH 43201</p>
-        <p>[Opening hours] · Home of The Purple Door Cafe</p>
-        <p class="zh-footer__email"><a href="mailto:hello@example.com" data-zh-pending="Zora's House email address">[ZH email address]</a></p>
+        <p>1393 N. 4th St.<br>Columbus, OH 43201</p>
+        <p><a href="tel:+16145941875">614.594.1875</a></p>
+        <p class="zh-footer__email"><a href="mailto:heygirlhey@zorashouse.com">heygirlhey@zorashouse.com</a></p>
       </div>
       <div>
         <p class="zh-footer__title">Explore</p>
@@ -174,8 +261,8 @@
         <ul class="zh-footer__links">
           <li><a href="membership.html">Membership</a></li>
           <li><a href="#" data-zh-pending="Donate page URL">Give</a></li>
-          <li><a href="contact.html?topic=Partnering%20with%20Zora%E2%80%99s%20House">Partner with us</a></li>
-          <li><a href="contact.html?topic=Visiting%20or%20booking%20the%20House">Visit the House</a></li>
+          <li><a href="contact.html?topic=Partnership">Partner with us</a></li>
+          <li><a href="contact.html">Visit the House</a></li>
         </ul>
       </div>
       <div>
