@@ -241,9 +241,11 @@
 .zh-hero__actions { display: flex; flex-wrap: wrap; gap: 14px; }
 .zh-hero--short { min-height: min(70vh, 640px); }
 
+/* zoom from the top edge so faces near the top of a photo are never pushed out of frame */
+.zh-hero__media img { transform-origin: center top; }
 @keyframes zh-kenburns {
   from { transform: scale(1); }
-  to { transform: scale(1.08) translate(-1%, -1%); }
+  to { transform: scale(1.08) translate(-1%, 0); }
 }
 
 /* ==========================================================================
@@ -632,7 +634,8 @@ a.zh-pcard { text-decoration: none; color: inherit; }
    Template pages (D3 Overview, D4 Contact Inquiry, D5 Events)
    ========================================================================== */
 .zh-hero--page { min-height: min(64vh, 600px); }
-.zh-hero--compact { min-height: min(50vh, 460px); }
+/* grows with screen width so wide screens show more of the photo, not a thin strip */
+.zh-hero--compact { min-height: min(85vh, clamp(460px, 40vw, 720px)); }
 .zh-hero--page .zh-hero__content,
 .zh-hero--compact .zh-hero__content { padding-top: clamp(72px, 10vw, 120px); }
 .zh-crumbs { font-size: .92rem; color: rgba(255, 255, 255, .85); margin-bottom: 18px; }
@@ -779,6 +782,17 @@ a.zh-pcard { text-decoration: none; color: inherit; }
 /* membership updates signup inside the gradient band */
 .zh-signup--band { flex: 1 1 340px; max-width: 460px; }
 .zh-news .zh-eyebrow { color: #ffd6e4; }
+
+/* photo placeholder tiles: each photo is used only once on the site, so spots still waiting
+   for a photo get a branded tile. Replace the <div class="zh-tile"> with an <img> when one arrives. */
+.zh-tile { display: grid; place-items: center; width: 100%; aspect-ratio: 3 / 2; padding: 12px; background: var(--zh-grad-cool); color: rgba(255, 255, 255, .85); font-family: var(--zh-font-accent); font-size: .8rem; letter-spacing: .16em; text-transform: uppercase; text-align: center; }
+.zh-pcard:nth-child(3n+2) .zh-tile, .zh-split--rev .zh-tile { background: var(--zh-grad-warm); }
+.zh-pcard:nth-child(3n+3) .zh-tile { background: var(--zh-grad-teal); }
+.zh-ne .zh-pcard .zh-tile { aspect-ratio: 16 / 9; }
+.zh-split__media .zh-tile { aspect-ratio: 4 / 3; border-radius: var(--zh-radius); box-shadow: var(--zh-shadow); }
+.zh-hero__media.zh-tile { padding: 0; aspect-ratio: auto; }
+.zh-tile--soft { background: var(--zh-blush); color: var(--zh-magenta); }
+.zh-erow__media .zh-tile { aspect-ratio: 4 / 3; border-radius: 12px; align-items: end; padding-bottom: 14px; font-size: .7rem; }
 
 /* events: featured, rows with photo, toolbar, view toggle */
 .zh-feature--spaced { margin: 40px 0 0; }
