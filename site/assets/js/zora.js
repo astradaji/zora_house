@@ -18,6 +18,11 @@
     });
   });
 
+  /* ---- Hero background video: stays still for visitors who prefer reduced motion ---- */
+  document.querySelectorAll('[data-zh-hero-video]').forEach(function (video) {
+    if (reduceMotion) { video.removeAttribute('autoplay'); video.pause(); }
+  });
+
   /* ---- Hero headline options ----
      The hero <h1> lists the approved alternatives in data-zh-options (separated by |).
      Preview another with ?hero=2 or ?hero=3 in the URL. */
