@@ -117,7 +117,7 @@
      With data-zh-endpoint (e.g. a Formspree URL) the message is posted there.
      Without one, the visitor's email app opens with the message filled in, addressed to data-zh-email.
      A link like contact.html?topic=Membership preselects the topic.
-     After sending, the matching "what happens next" answer (details[data-zh-topic]) is added to the notice. */
+     After sending, the reply for the chosen inquiry (p[data-zh-topic] in .zh-replies) is shown with the notice. */
   document.querySelectorAll('[data-zh-contact]').forEach(function (form) {
     var notice = form.querySelector('.zh-form__notice');
     var topic = form.querySelector('[name="topic"]');
@@ -130,14 +130,21 @@
       document.querySelectorAll('[data-zh-topic]').forEach(function (d) {
         if (d.getAttribute('data-zh-topic') === chosen) match = d;
       });
-      if (!match) match = document.querySelector('[data-zh-topic="Other"]');
-      var p = match && match.querySelector('p');
-      return p ? ' ' + p.textContent.trim() : '';
+      return match || document.querySelector('[data-zh-topic="Other"]');
     }
-    function say(text) {
+    function say(text, reply) {
       if (!notice) return;
-      notice.textContent = text;
+      notice.textContent = '';
+      var lead = document.createElement('strong');
+      lead.textContent = text;
+      notice.appendChild(lead);
+      if (reply) {
+        var p = reply.cloneNode(true); /* keeps the links in the reply */
+        p.removeAttribute('data-zh-topic');
+        notice.appendChild(p);
+      }
       notice.hidden = false;
+      notice.scrollIntoView({ block: 'nearest' });
     }
     form.addEventListener('submit', function (e) {
       e.preventDefault();
@@ -149,7 +156,7 @@
           .then(function (r) {
             if (!r.ok) throw new Error(r.status);
             form.reset();
-            say('Your message is on its way.' + next);
+            say('Thank you! Your message is on its way.', next);
           })
           .catch(function () { say('Sorry, your message could not be sent. Please email us instead.'); });
         return;
@@ -158,7 +165,7 @@
       var body = data.get('message') + '\n\n' + data.get('name') + '\n' + data.get('email');
       window.location.href = 'mailto:' + (form.getAttribute('data-zh-email') || '') +
         '?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
-      say('Your email app should open with your message ready to send.' + next);
+      say('Thank you! Your email app should open with your message ready to send.', next);
     });
   });
 

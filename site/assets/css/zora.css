@@ -1360,3 +1360,73 @@ body:has(main > .zh-section--blush:last-child) .zh-site-footer { --zh-prev: var(
   transform: rotate(-4deg);
   pointer-events: none;
 }
+
+/* ==========================================================================
+   Client feedback round 3
+   ========================================================================== */
+/* logo (assets/images/brand: navy version for the header, white version for the footer) */
+.zh-site-header .zh-wrap { min-height: 84px; }
+.zh-logo img { display: block; height: 54px; width: auto; }
+.zh-footer__brand img { display: block; width: 230px; max-width: 100%; height: auto; }
+
+/* footer newsletter: links to the hosted signup page */
+.zh-footer__news { margin: 0 0 16px; }
+.zh-site-footer .zh-btn:hover { color: var(--zh-white); }
+
+/* contact: confirmation with the reply for the chosen inquiry */
+.zh-form__notice strong { display: block; }
+.zh-form__notice p { margin: 8px 0 0; font-weight: 400; color: var(--zh-ink); }
+.zh-form__notice a { color: var(--zh-teal-ink); text-underline-offset: 3px; }
+
+/* events: time line under the featured event */
+.zh-feature__meta { margin: -6px 0 22px; font-family: var(--zh-font-accent); font-size: .95rem; letter-spacing: .12em; text-transform: uppercase; color: var(--zh-teal-ink); }
+
+/* headings wrap evenly (no single word left alone on the last line) */
+.zh-h1, .zh-h2, .zh-vision__line { text-wrap: balance; }
+
+/* About > Vision: tighter band */
+.zh-vision { padding: clamp(52px, 6vw, 84px) 0; }
+.zh-vision__line { margin-top: 18px; }
+.zh-vision .zh-center .zh-h2::after, .zh-vision .zh-h2::after { margin-top: 8px; }
+
+/* swirls in the navy bands: centred on the right edge, clear of the numbers and buttons */
+.zh-grad::before {
+  top: 50%;
+  right: -200px;
+  width: clamp(240px, 26vw, 360px);
+  transform: translateY(-50%);
+  opacity: .45;
+}
+.zh-ctaband.zh-grad::before {
+  top: auto;
+  bottom: -120px;
+  right: -100px;
+  width: clamp(200px, 20vw, 260px);
+  transform: none;
+  opacity: .3;
+}
+
+/* About hero: headline kept to the left, photo shifted right so the text no longer covers LC's face */
+@media (min-width: 861px) {
+  .zh-hero--short .zh-hero__content { max-width: 640px; }
+  .zh-hero--short .zh-hero__media::after { display: none; } /* dots would sit on her hair */
+  .zh-hero--short .zh-h1 { font-size: clamp(2.1rem, 3.7vw, 3.2rem); }
+  .zh-hero--short .zh-hero__media img { left: -6%; right: auto; width: 140%; max-width: none; object-position: center 30%; }
+}
+
+@media (max-width: 860px) {
+  .zh-logo img { height: 44px; }
+  .zh-site-header .zh-wrap { min-height: 72px; }
+}
+@media (max-width: 400px) {
+  .zh-logo img { height: 38px; }
+}
+
+/* header menu (now with Membership): labels never wrap; tighter on mid-size screens */
+.zh-nav a { white-space: nowrap; }
+@media (min-width: 861px) and (max-width: 1100px) {
+  .zh-nav ul { gap: 14px; }
+  .zh-nav a { font-size: .92rem; }
+  .zh-nav .zh-btn { padding: 9px 16px; }
+  .zh-logo img { height: 44px; }
+}
